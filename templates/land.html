@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>        
+/* =====================================================
+   LANDING PAGE
+===================================================== */
+.landing-page {
+
+    height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: last baseline;
+
+    justify-content: left;
+
+    text-align: left;
+
+    background-image:
+        url("/static/images/education/uni.jpeg");
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+.landing-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(20,30,30,0.72),
+            rgba(20,30,30,0.55)
+        );
+}
+.landing-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 700px;
+
+    padding: 25px;
+
+    color: white;
+}
+.welcome-text {
+
+    letter-spacing: 10px;
+
+    font-size: 20px;
+
+    color: darkgoldenrod;
+    top: 5%;
+    left: 20%;
+    transform: translateX(-50%);
+    position: absolute;
+}
+.landing-content h1 {
+
+    font-size: clamp(65px, 10vw, 130px);
+
+    line-height: 0.80;
+
+    letter-spacing: 8px;
+}
+.landing-content h1 span {
+
+    display: block;
+
+    font-size: 0.55em;
+
+    letter-spacing: 12px;
+
+    color: darkgoldenrod;
+}
+.dharwad{
+    color: darkgoldenrod;
+}
+.tagline {
+
+    margin-top: 35px;
+
+    font-size: 24px;
+
+    font-style: italic;
+}
+.intro {
+
+    max-width: 600px;
+
+    margin: 20px auto;
+
+    line-height: 1.8;
+
+    font-family: Arial, sans-serif;
+}
+.next-btn:hover {
+
+    transform: translateY(-4px);
+
+    background: #f59e57;
+
+}
+.next-btn {
+
+    margin-top: 25px;
+
+    padding: 16px 35px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background:darkgoldenrod;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+    
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+.next-btn:hover {
+
+    transform: translateY(-4px);
+
+    background: #c59e7f;
+}
+</style>
+</head>
+<body>    
+<!-- =====================================================
+     LANDING PAGE
+===================================================== -->
+<section class="landing-page" id="home">
+
+    <div class="landing-overlay"></div>
+
+    <div class="landing-content">
+
+        <h2 class="welcome-text">
+            WELCOME TO
+        </h2>
+
+        <h1>
+            VIDYA KASHI 
+            <span class="Dharwad">DHARWADA</span>
+        </h1>
+
+        <p class="tagline">
+            Where Knowledge Meets Culture
+        </p>
+
+        <a href="/Main.html" class="next-btn"> Explore Dharawada →</a>
+        </button>
+
+    </div>
+</section>
+</body>
+</html>

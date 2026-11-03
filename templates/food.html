@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Food - Dharwad Search</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background:#fff8ed;
+    color:#173D35;
+}
+
+header{
+    background:#173D35;
+    color:white;
+    padding:50px 8%;
+}
+
+header h1{
+    font-size:48px;
+}
+
+.container{
+    width:85%;
+    max-width:1050px;
+    margin:auto;
+    padding:40px 0;
+}
+
+.feature{
+    display:grid;
+    grid-template-columns:1fr 330px;
+    gap:35px;
+    align-items:center;
+}
+
+.feature img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:16px;
+}
+
+.foods{
+    margin-top:35px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.food{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 15px #0001;
+}
+
+.note{
+    margin-top:35px;
+    padding:25px;
+    background:bisque;
+    border-radius:15px;
+}
+
+.back{
+    display:inline-block;
+    margin-top:30px;
+    background:#d5a548;
+    color:#173D35;
+    padding:11px 22px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+    text-align: center;
+}
+
+footer{
+    margin-top:40px;
+    background:#173D35;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:700px){
+    .feature,.foods{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🍽️ Food of Dharwad</h1>
+<p>Traditional flavours and famous foods of Dharwad.</p>
+<center>
+<a href="/Main.html" class="back">← Go Back</a></center>
+</header>
+
+<main class="container">
+
+<section class="feature">
+
+<div>
+<h2>Dharwad Peda</h2>
+
+<p>
+Dharwad Peda is the most famous sweet associated with the city.
+It is traditionally prepared using milk solids and sugar.
+</p>
+
+<p>
+Dharwad's food culture is also strongly connected with the
+traditional cuisine of North Karnataka.
+</p>
+</div>
+
+<img src="/static/images/food/DharwadPeda.webp"
+alt="Dharwad Peda">
+
+</section>
+
+<section class="foods">
+
+<div class="food">
+<h2>🌾 Jolada Rotti</h2>
+<p>
+Jolada rotti is a traditional north karnataka dish made from 
+jowar flour.It is soft,tasty and usually enjoyed with spicy curries,
+chutney, or vagetables.A simple dish that reflects the rich food culture 
+of karnataka.
+</p>
+</div>
+
+<div class="food">
+<h2>🥘 North Karnataka Meals</h2>
+<p>
+North karnataka meals are more than just food,They are feeling of
+home.Everybite carries the taste of treditional,love,and memories.
+</p>
+</div>
+
+<div class="food">
+<h2>🍬 Local Sweets</h2>
+<p>
+Dharwad is especially famous for its peda and other traditional
+sweet-shop treats.
+</p>
+</div>
+
+</section>
+
+<div class="note">
+<h2>Food & Culture</h2>
+<p>
+ is a beautiful blend of rich culture and delicious traditional 
+food.From jolada rotti to  peda, every taste tells a story 
+of traditional,love,and heritage.
+</p>
+</div>
+</main>
+
+<footer>Dharwad Search • Food</footer>
+
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Banks in Dharwad - Dharwad Search</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f5f2e9;
+    color:#173D35;
+}
+
+/* HEADER */
+
+header{
+    background:#173D35;
+    color:white;
+    padding:55px 8%;
+}
+
+header h1{
+    font-size:45px;
+    margin:0 0 10px;
+}
+
+header p{
+    color:#dce8e4;
+    font-size:17px;
+}
+
+/* MAIN */
+
+.container{
+    width:85%;
+    max-width:1100px;
+    margin:auto;
+    padding:40px 0;
+}
+
+/* INTRO */
+
+.intro{
+    background:white;
+    padding:28px;
+    border-radius:16px;
+    box-shadow:0 5px 18px #0001;
+    margin-bottom:30px;
+}
+
+.intro h2{
+    color:#a87924;
+}
+
+/* BANK GRID */
+
+.banks{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.bank{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 15px #0001;
+    border-top:5px solid #d2a548;
+    transition:0.3s;
+}
+
+.bank:hover{
+    transform:translateY(-5px);
+}
+
+.bank h2{
+    color:#173D35;
+    margin-top:0;
+}
+
+.bank p{
+    margin:8px 0;
+}
+
+.type{
+    display:inline-block;
+    background:#e5eee8;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.address{
+    color:#555;
+}
+
+/* NOTE */
+
+.note{
+    margin-top:35px;
+    padding:25px;
+    background:#fff1cf;
+    border-radius:15px;
+}
+
+.note h2{
+    margin-top:0;
+    color:#9c7025;
+}
+
+/* BACK */
+
+.back{
+    display:inline-block;
+    margin-top:30px;
+    background:#d2a548;
+    color:#173D35;
+    padding:11px 22px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:40px;
+    background:#173D35;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .banks{
+        grid-template-columns:1fr;
+    }
+
+    header h1{
+        font-size:35px;
+    }
+
+    .container{
+        width:90%;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+<h1>🏦 Banks in Dharwad</h1>
+
+<p>
+Explore major banks and banking branches available in Dharwad.
+</p>
+
+<center><a href="/Main.html" class="back">
+← Go Back
+</a></center>
+</header>
+
+
+<main class="container">
+
+
+<!-- INTRO -->
+
+<section class="intro">
+
+<h2>Banking in Dharwad</h2>
+
+<p>
+Dharwad has branches of public-sector banks, private banks,
+co-operative banks and other financial institutions.
+</p>
+
+<p>
+Banks in the city provide facilities such as savings accounts,
+current accounts, ATMs, loans, deposits and digital banking.
+</p>
+
+</section>
+
+
+<!-- BANKS -->
+
+<section class="banks">
+
+
+<div class="bank">
+
+<span class="type">Public Sector Bank</span>
+
+<h2>🏦 State Bank of India</h2>
+
+<p>
+SBI has branches serving customers in different parts of Dharwad.
+</p>
+
+<p class="address">
+📍 College Road, Dharwad – 580001
+</p>
+
+</div>
+
+
+<div class="bank">
+
+<span class="type">Public Sector Bank</span>
+
+<h2>🏦 Union Bank of India</h2>
+
+<p>
+Union Bank of India provides banking facilities to individuals
+and businesses.
+</p>
+
+<p class="address">
+📍 Vijaya Road, Maratha Colony, Dharwad – 580001
+</p>
+
+</div>
+
+
+<div class="bank">
+
+<span class="type">Public Sector Bank</span>
+
+<h2>🏦 Bank of India</h2>
+
+<p>
+Bank of India has a branch serving customers in Dharwad.
+</p>
+
+<p class="address">
+📍 German Hospital Road / Haliyal Naka Road,
+Dharwad – 580008
+</p>
+
+</div>
+
+
+<div class="bank">
+
+<span class="type">Private Bank</span>
+
+<h2>🏦 HDFC Bank</h2>
+
+<p>
+HDFC Bank has branches in Dharwad for personal and business
+banking requirements.
+</p>
+
+<p class="address">
+📍 Court Road, near Court Circle,
+Dharwad – 580001
+</p>
+
+</div>
+
+
+<div class="bank">
+
+<span class="type">Private Bank</span>
+
+<h2>🏦 ICICI Bank</h2>
+
+<p>
+ICICI Bank operates branches in Dharwad, including its
+P.B. Road branch.
+</p>
+
+<p class="address">
+📍 Near Jubilee Circle, P.B. Road,
+Dharwad – 580001
+</p>
+
+</div>
+
+
+<div class="bank">
+
+<span class="type">Private Bank</span>
+
+<h2>🏦 Axis Bank</h2>
+
+<p>
+Axis Bank has branches in Dharwad providing various
+banking facilities.
+</p>
+
+<p class="address">
+📍 Saraswatpur, Dharwad – 580002
+</p>
+
+</div>
+
+
+<div class="bank">
+
+<span class="type">Private Bank</span>
+
+<h2>🏦 Karnataka Bank</h2>
+
+<p>
+Karnataka Bank has multiple branches in Dharwad, including
+areas around PB Road and KUD.
+</p>
+
+<p class="address">
+📍 PB Road / KUD Road, Dharwad
+</p>
+
+</div>
+
+
+<div class="bank">
+
+<span class="type">Private Bank</span>
+
+<h2>🏦 IDFC FIRST Bank</h2>
+
+<p>
+IDFC FIRST Bank has a branch in Dharwad providing
+personal and banking services.
+</p>
+
+<p class="address">
+📍 Jayanagar, Saptapur, Dharwad – 580001
+</p>
+
+</div>
+
+
+<div class="bank">
+
+<span class="type">Private Bank</span>
+
+<h2>🏦 Federal Bank</h2>
+
+<p>
+Federal Bank has a branch in the Saptapur area of Dharwad.
+</p>
+
+<p class="address">
+📍 Vivekananda Circle, Saptapur,
+Dharwad – 580001
+</p>
+
+</div>
+
+
+<div class="bank">
+
+<span class="type">Small Finance Bank</span>
+
+<h2>🏦 Ujjivan Small Finance Bank</h2>
+
+<p>
+Ujjivan Small Finance Bank has a branch near Hosayallapura
+in Dharwad.
+</p>
+
+<p class="address">
+📍 Hubballi–Dharwad Road,
+Hosayallapura, Dharwad – 580001
+</p>
+
+</div>
+
+
+</section>
+
+
+<!-- NOTE -->
+
+<section class="note">
+
+<h2>💡 Banking Tip</h2>
+
+<p>
+Before visiting a bank, check the official branch website for
+the latest address, working hours and available facilities.
+</p>
+
+<p>
+Never share your ATM PIN, password or OTP with anyone.
+</p>
+
+</section>
+
+</main>
+
+
+<footer>
+
+Dharwad Search • Banks in Dharwad
+
+</footer>
+
+</body>
+</html>

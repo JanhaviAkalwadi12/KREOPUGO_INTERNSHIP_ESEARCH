@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dharwad Peda | Dharwada Search</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6efe5;
+            color: #3d332b;
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+
+        header {
+            background-color: #202625;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #c8a27a;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #c8a27a;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            min-height: 430px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 50px 8%;
+
+            background: #eadbc8;
+        }
+
+        .hero-text {
+            width: 50%;
+        }
+
+        .hero-text small {
+            letter-spacing: 4px;
+            color: #80664d;
+        }
+
+        .hero-text h1 {
+            font-family: Georgia, serif;
+            font-size: 55px;
+            margin: 15px 0;
+            color: #3d332b;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            max-width: 600px;
+        }
+
+        .hero-image {
+            width: 38%;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-height: 330px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+
+        /* COMMON SECTION */
+
+        section {
+            padding: 55px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: Georgia, serif;
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #3d332b;
+        }
+
+        .section-text {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            font-size: 17px;
+        }
+
+
+        /* INFORMATION BOXES */
+
+        .info-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .info-box {
+            width: 280px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #ddcdbb;
+        }
+
+        .info-box h3 {
+            color: #75563c;
+            margin-bottom: 10px;
+            font-family: Georgia, serif;
+        }
+
+        .info-box p {
+            font-size: 15px;
+        }
+
+
+        /* PREPARATION */
+
+        .preparation {
+            background-color: #fffaf4;
+        }
+
+        .steps {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            min-width: 40px;
+            height: 40px;
+
+            background-color: #80664d;
+            color: white;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: bold;
+        }
+
+
+        /* SHOP SECTION */
+
+        .shops {
+            background-color: #eadbc8;
+        }
+
+        .shop-list {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .shop {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #80664d;
+        }
+
+        .shop h3 {
+            color: #75563c;
+            margin-bottom: 5px;
+        }
+
+
+        /* MAP BUTTON */
+
+        .map-button {
+            display: block;
+            width: fit-content;
+
+            margin: 30px auto 0;
+
+            padding: 13px 25px;
+
+            background-color: #80664d;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+        }
+
+        .map-button:hover {
+            background-color: #5f4936;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background-color: #202625;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .hero-image {
+                width: 80%;
+                margin-top: 30px;
+            }
+
+        }
+        .back {
+            text-align: center;
+            margin: 30px;
+        }
+
+        .back a {
+            text-decoration: none;
+            background-color:  #e8a34a;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 25px;
+        }
+
+        .back a:hover {
+            background-color:  #173D35;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        Dharwada<span>Search</span>
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <small>DHARWAD'S FAMOUS SWEET</small>
+
+        <h1>Dharwad Peda</h1>
+
+        <p>
+            A sweet tradition of Dharwad, known for its unique
+            taste, soft texture and rich cultural history.
+        </p>
+
+    </div>
+    
+    <div class="hero-image">
+
+        <!-- Change the image name if your image has a different filename -->
+
+        <img src="/static/images/food/peda2.webp" alt="Dharwada Peda">
+
+    </div>
+
+</section>
+<div class="back">
+    <center><a href="/Main.html">← Go Back</a></center>
+    </div>
+
+
+<!-- ABOUT -->
+
+<section>
+
+    <h2 class="section-title">
+        About DharwadaS Peda
+    </h2>
+
+    <p class="section-text">
+
+        Dharwada Peda is one of the most famous traditional sweets
+        associated with Dharwada and North Karnataka. It is known
+        for its distinctive brown colour, soft texture and
+        caramel-like taste.
+
+        The sweet has become an important part of Dharwada's
+        food identity and is enjoyed by both local people and
+        visitors.
+
+    </p>
+
+</section>
+
+
+
+<!-- HISTORY -->
+
+<section class="preparation">
+
+    <h2 class="section-title">
+        History of Dharwada Peda
+    </h2>
+
+    <p class="section-text">
+
+        Dharwada Peda has a long history in the city and is
+        traditionally associated with the Thakur family.
+        Over generations, the sweet became closely connected
+        with Dharwad and eventually became one of the city's
+        best-known food specialties.
+
+    </p>
+
+</section>
+
+
+
+<!-- INGREDIENTS -->
+
+<section>
+
+    <h2 class="section-title">
+        What Makes Dharwad Peda Special?
+    </h2>
+
+    <div class="info-container">
+
+        <div class="info-box">
+
+            <h3>🥛 Milk</h3>
+
+            <p>
+                Milk is one of the main ingredients and is
+                slowly cooked to create the characteristic
+                texture.
+            </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <h3>🍚 Sugar</h3>
+
+            <p>
+                Sugar gives the peda its sweetness and
+                contributes to its distinctive colour and taste.
+            </p>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <h3>✨ Traditional Method</h3>
+
+            <p>
+                Slow cooking and careful preparation help create
+                the unique flavour associated with Dharwad Peda.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- PREPARATION -->
+
+<section class="preparation">
+
+    <h2 class="section-title">
+        How Dharwad Peda is Prepared
+    </h2>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-number">1</div>
+
+            <p>
+                Fresh milk is heated and slowly cooked until
+                it becomes thick.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">2</div>
+
+            <p>
+                Sugar is added to the thickened milk mixture
+                and it is cooked further.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">3</div>
+
+            <p>
+                The mixture develops its characteristic
+                brown colour and rich flavour.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">4</div>
+
+            <p>
+                The prepared mixture is shaped into small
+                peda pieces.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">5</div>
+
+            <p>
+                The peda is traditionally finished with
+                powdered sugar before serving.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- WHERE TO FIND -->
+
+<section class="shops">
+
+    <h2 class="section-title">
+        Where Can You Find Dharwad Peda?
+    </h2>
+
+
+    <div class="shop-list">
+
+
+        <div class="shop">
+
+            <h3>Traditional Peda Shops</h3>
+
+            <p>
+                Dharwad has several traditional sweet shops
+                where visitors can buy Dharwad Peda.
+            </p>
+
+        </div>
+
+
+        <div class="shop">
+
+            <h3>Line Bazaar Area</h3>
+
+            <p>
+                Line Bazaar is historically associated with
+                the traditional Dharwad Peda trade.
+            </p>
+
+        </div>
+
+
+        <div class="shop">
+
+            <h3>Across Dharwad City</h3>
+
+            <p>
+                Dharwad Peda is also available at various
+                sweet shops and food stores throughout the city.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <a
+        class="map-button"
+        href="https://www.google.com/maps/search/?api=1&query=Dharwad+Peda+Line+Bazaar+Dharwad"
+        target="_blank">
+
+        📍 Find Dharwad Peda Shops
+
+    </a>
+
+</section>
+
+
+
+<!-- WHY FAMOUS -->
+
+<section>
+
+    <h2 class="section-title">
+        Why Is Dharwad Peda Famous?
+    </h2>
+
+    <p class="section-text">
+
+        Dharwad Peda is more than just a sweet. It represents
+        the food culture and identity of Dharwad. Its distinctive
+        taste and traditional preparation have made it a popular
+        food souvenir for people visiting the city.
+
+    </p>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Dharwada Search
+    </p>
+
+    <p>
+        Explore • Discover • Experience Dharwad
+    </p>
+
+</footer>
+
+
+</body>
+</html>

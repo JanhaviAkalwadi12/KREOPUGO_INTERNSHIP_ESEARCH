@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Help - Dharwad Search</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f6f3eb;
+    color:#263f3d;
+}
+header{
+    background:#294c48;
+    color:white;
+    padding:50px 8%;
+}
+header h1{font-size:45px}
+.container{
+    width:85%;
+    max-width:900px;
+    margin:auto;
+    padding:40px 0;
+}
+.faq{
+    background:white;
+    margin-bottom:15px;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 15px #0001;
+}
+.question{
+    padding:20px;
+    cursor:pointer;
+    font-weight:bold;
+    display:flex;
+    justify-content:space-between;
+}
+.answer{
+    display:none;
+    padding:0 20px 20px;
+    color:#555;
+}
+.answer.show{
+    display:block;
+}
+.tip{
+    margin-top:30px;
+    padding:25px;
+    background:#fff0cb;
+    border-radius:15px;
+}
+.back{
+    display:inline-block;
+    margin-top:30px;
+    background:#d2a548;
+    color:#183b39;
+    padding:11px 22px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+footer{
+    margin-top:40px;
+    background:#294c48;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+.hed{
+    height:auto;
+}
+</style>
+</head>
+
+<body>
+
+<header class="hed">
+<h1>❓ Help & FAQ</h1>
+<p>Find answers about using Dharwad Search.</p>
+<center><a href="/Main.html" class="back">← Go Back</a></center>
+</header>
+
+<main class="container">
+
+<div class="faq">
+<div class="question" onclick="toggle(this)">
+What is Dharwad Search? <span>+</span>
+</div>
+<div class="answer">
+Dharwad Search is an information website designed to help users
+explore important information about Dharwad.
+</div>
+</div>
+
+<div class="faq">
+<div class="question" onclick="toggle(this)">
+What information can I find? <span>+</span>
+</div>
+<div class="answer">
+You can explore information about history, greenery, food,
+education, healthcare, transport, government services and more.
+</div>
+</div>
+
+<div class="faq">
+<div class="question" onclick="toggle(this)">
+Can I use the website on mobile? <span>+</span>
+</div>
+<div class="answer">
+Yes. The pages are designed to adjust to mobile, tablet and
+desktop screen sizes.
+</div>
+</div>
+
+<div class="faq">
+<div class="question" onclick="toggle(this)">
+Where can I find emergency numbers? <span>+</span>
+</div>
+<div class="answer">
+Open the Emergency section to find important emergency contact numbers.
+</div>
+</div>
+
+<div class="faq">
+<div class="question" onclick="toggle(this)">
+How can I return to the main page? <span>+</span>
+</div>
+<div class="answer">
+Use the "Back to Dharwad Search" button at the bottom of each page.
+</div>
+</div>
+
+<div class="tip">
+<h2>💡 Need More Information?</h2>
+<p>
+For official government information, always verify important
+details through the official Dharwad district administration website.
+</p>
+</div>
+
+</main>
+
+<footer>Dharwad Search • Help & FAQ</footer>
+
+<script>
+function toggle(element){
+
+    let answer = element.nextElementSibling;
+    let symbol = element.querySelector("span");
+
+    if(answer.classList.contains("show")){
+        answer.classList.remove("show");
+        symbol.textContent = "+";
+    }
+    else{
+        answer.classList.add("show");
+        symbol.textContent = "−";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,888 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dharwad Hospital Directory</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #F7F6F0;
+      color: #293B34;
+    }
+
+    /* HEADER */
+    header {
+      background: #24483F;
+      color: #fff;
+      padding: 20px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border: none;
+      box-shadow: none;
+    }
+
+    header h1 {
+      font-size: 28px;
+      color: #fff;
+    }
+
+    header p {
+      margin-top: 5px;
+      color: #E0E8E2;
+    }
+
+    /* GO BACK BUTTON IN HEADER */
+    .back {
+      display: inline-block;
+      background: #D9A441;
+      color: #24483F;
+      padding: 11px 22px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .back:hover {
+      background: #B98220;
+      color: #fff;
+    }
+
+    .emergency-btn {
+      background: #fff;
+      color: #24483F;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .emergency-btn:hover {
+      background: #D9A441;
+      color: #24483F;
+    }
+
+    /* SEARCH */
+    .search-section {
+      padding: 25px 6%;
+      border-bottom: 1px solid #E2E2D8;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #D6DCD5;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      background: #fff;
+      color: #293B34;
+      transition: 0.3s;
+    }
+
+    .search-box:focus {
+      border-color: #D9A441;
+      box-shadow: 0 0 0 3px rgba(217, 164, 65, 0.15);
+    }
+
+    /* FILTERS */
+    .filters {
+      padding: 20px 6%;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 10px 18px;
+      border: 1px solid #D9A441;
+      background: #fff;
+      color: #24483F;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #D9A441;
+      color: #24483F;
+    }
+
+    /* SECTION */
+    section {
+      padding: 25px 6%;
+    }
+
+    section h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      border-left: 5px solid #D9A441;
+      padding-left: 12px;
+      color: #24483F;
+    }
+
+    /* HOSPITAL GRID */
+    .hospital-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* HOSPITAL CARD */
+    .hospital-card {
+      border: 1px solid #E2E2D8;
+      padding: 20px;
+      border-radius: 10px;
+      background: #fff;
+      transition: 0.25s;
+    }
+
+    .hospital-card:hover {
+      box-shadow: 0 7px 20px rgba(36, 72, 63, 0.10);
+      transform: translateY(-3px);
+      border-color: #D9A441;
+    }
+
+    .hospital-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #24483F;
+    }
+
+    .hospital-type {
+      display: inline-block;
+      border: 1px solid #D9A441;
+      background: #FBF3DF;
+      color: #24483F;
+      padding: 5px 9px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .hospital-card p {
+      margin: 8px 0;
+      line-height: 1.5;
+      color: #65716B;
+    }
+
+    /* BUTTONS */
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .buttons a {
+      flex: 1;
+      text-align: center;
+      padding: 11px;
+      border: 1px solid #24483F;
+      background: #24483F;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .buttons a:hover {
+      background: #D9A441;
+      border-color: #D9A441;
+      color: #24483F;
+    }
+
+    /* EMERGENCY */
+    .emergency-section {
+      background: #24483F;
+      color: #fff;
+    }
+
+    .emergency-section h2 {
+      border-left-color: #D9A441;
+      color: #fff;
+    }
+
+    .emergency-section .hospital-card {
+      background: #fff;
+      color: #293B34;
+      border-color: #D9A441;
+    }
+
+    .emergency-section .hospital-card h3 {
+      color: #24483F;
+    }
+
+    .emergency-section .hospital-card p {
+      color: #65716B;
+    }
+
+    .emergency-section .hospital-type {
+      border-color: #D9A441;
+      background: #FBF3DF;
+      color: #24483F;
+    }
+
+    .emergency-section .buttons a {
+      border-color: #24483F;
+      background: #24483F;
+      color: #fff;
+    }
+
+    .emergency-section .buttons a:hover {
+      background: #D9A441;
+      border-color: #D9A441;
+      color: #24483F;
+    }
+
+    /* MAP */
+    .map-section {
+      padding: 30px 6%;
+    }
+
+    .map-box {
+      width: 100%;
+      height: 400px;
+      border: 1px solid #E2E2D8;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .map-box iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #24483F;
+      color: #fff;
+      text-align: center;
+      padding: 25px;
+      margin-top: 30px;
+      border: none;
+      box-shadow: none;
+    }
+
+    footer p {
+      color: #E0E8E2;
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 22px;
+      }
+
+      header > div {
+        width: 100%;
+      }
+
+      .back {
+        order: 3;
+      }
+
+      section {
+        padding: 20px 4%;
+      }
+
+      .search-section,
+      .filters,
+      .map-section {
+        padding-left: 4%;
+        padding-right: 4%;
+      }
+
+      .hospital-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .map-box {
+        height: 300px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <h1>Dharwad Hospital Directory</h1>
+      <p>Government • Private • Multispeciality • Emergency</p>
+    </div>
+
+    <a class="back" href="/Main.html">← Go Back</a>
+
+    <a class="emergency-btn" href="tel:108">
+      Emergency: 108
+    </a>
+  </header>
+
+  <!-- SEARCH -->
+  <div class="search-section">
+    <input
+      type="text"
+      id="search"
+      class="search-box"
+      placeholder="Search hospital name, area or type..."
+      onkeyup="searchHospitals()"
+    />
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filters">
+
+    <button class="filter-btn active" onclick="filterHospitals('all', this)">
+      All
+    </button>
+
+    <button class="filter-btn" onclick="filterHospitals('government', this)">
+      Government
+    </button>
+
+    <button class="filter-btn" onclick="filterHospitals('private', this)">
+      Private
+    </button>
+
+    <button class="filter-btn" onclick="filterHospitals('multispeciality', this)">
+      Multispeciality
+    </button>
+
+    <button class="filter-btn" onclick="filterHospitals('emergency', this)">
+      Emergency
+    </button>
+
+  </div>
+
+  <!-- GOVERNMENT HOSPITALS -->
+  <section>
+    <h2>Government Hospitals</h2>
+
+    <div class="hospital-grid">
+
+      <div class="hospital-card"
+           data-type="government emergency"
+           data-name="District Civil Hospital Dharwad">
+
+        <span class="hospital-type">GOVERNMENT</span>
+
+        <h3>District Civil Hospital Dharwad</h3>
+
+        <p>
+          Killa Road, Dharwad, Karnataka - 580004
+        </p>
+
+        <p>
+          Phone: 0836-2448111
+        </p>
+
+        <div class="buttons">
+
+          <a href="tel:08362448111">
+            Call
+          </a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=District+Civil+Hospital+Dharwad"
+            target="_blank">
+            Directions
+          </a>
+
+        </div>
+      </div>
+
+      <div class="hospital-card"
+           data-type="government emergency"
+           data-name="ESI Hospital Dharwad">
+
+        <span class="hospital-type">GOVERNMENT</span>
+
+        <h3>ESI Hospital Dharwad</h3>
+
+        <p>
+          Saraswathpura, Dharwad - 580002
+        </p>
+
+        <p>
+          Phone: 0836-2440316
+        </p>
+
+        <div class="buttons">
+
+          <a href="tel:08362440316">
+            Call
+          </a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=ESI+Hospital+Dharwad"
+            target="_blank">
+            Directions
+          </a>
+
+        </div>
+      </div>
+
+      <div class="hospital-card"
+           data-type="government"
+           data-name="Dharwad Institute of Mental Health and Neurosciences">
+
+        <span class="hospital-type">GOVERNMENT</span>
+
+        <h3>DIMHANS Dharwad</h3>
+
+        <p>
+          Dharwad-Belgaum Road, Saidapur, Dharwad
+        </p>
+
+        <p>
+          Mental Health & Neurosciences
+        </p>
+
+        <div class="buttons">
+
+          <a href="tel:">
+            Call
+          </a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=DIMHANS+Dharwad"
+            target="_blank">
+            Directions
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRIVATE HOSPITALS -->
+  <section>
+    <h2>Private Hospitals</h2>
+
+    <div class="hospital-grid">
+
+      <div class="hospital-card"
+           data-type="private multispeciality emergency"
+           data-name="Shreeya Hospital">
+
+        <span class="hospital-type">PRIVATE</span>
+
+        <h3>Shreeya Hospital</h3>
+
+        <p>
+          PB Road, KHB Colony, Raj Nagar, Dharwad
+        </p>
+
+        <p>
+          24 Hours
+        </p>
+
+        <div class="buttons">
+
+          <a href="tel:+918362443515">
+            Call
+          </a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Shreeya+Hospital+Dharwad"
+            target="_blank">
+            Directions
+          </a>
+
+        </div>
+      </div>
+
+      <div class="hospital-card"
+           data-type="private multispeciality emergency"
+           data-name="Chirayu Multi Speciality Hospital">
+
+        <span class="hospital-type">PRIVATE</span>
+
+        <h3>Chirayu Multi Speciality Hospital</h3>
+
+        <p>
+          Malmaddi, Dharwad, Karnataka - 580007
+        </p>
+
+        <p>
+          24 Hours
+        </p>
+
+        <div class="buttons">
+
+          <a href="tel:+919019267676">
+            Call
+          </a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Chirayu+Multi+Speciality+Hospital+Dharwad"
+            target="_blank">
+            Directions
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hospital-card"
+           data-type="private multispeciality emergency"
+           data-name="Unity Super Speciality Hospital">
+
+        <span class="hospital-type">PRIVATE</span>
+
+        <h3>Unity Super Speciality Hospital</h3>
+
+        <p>
+          Maratha Colony, Dharwad, Karnataka - 580008
+        </p>
+
+        <p>
+          24 Hours
+        </p>
+
+        <div class="buttons">
+
+          <a href="tel:+918147266202">
+            Call
+          </a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Unity+Super+Speciality+Hospital+Dharwad"
+            target="_blank">
+            Directions
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hospital-card"
+           data-type="private multispeciality emergency"
+           data-name="Nirmala Multispeciality Hospital">
+
+        <span class="hospital-type">PRIVATE</span>
+
+        <h3>Nirmala Multispeciality Hospital</h3>
+
+        <p>
+          Saptapur, Dharwad, Karnataka - 580001
+        </p>
+
+        <p>
+          24 Hours
+        </p>
+
+        <div class="buttons">
+
+          <a href="#">
+            Call
+          </a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Nirmala+Multispeciality+Hospital+Dharwad"
+            target="_blank">
+            Directions
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MULTISPECIALITY -->
+  <section>
+    <h2>Multispeciality Hospitals</h2>
+
+    <div class="hospital-grid">
+
+      <div class="hospital-card"
+           data-type="private multispeciality emergency"
+           data-name="SDM College of Medical Sciences and Hospital">
+
+        <span class="hospital-type">MULTISPECIALITY</span>
+
+        <h3>
+          SDM College of Medical Sciences & Hospital
+        </h3>
+
+        <p>
+          Manjushree Nagar, Sattur, Dharwad - 580009
+        </p>
+
+        <p>
+          Medical College & Multispeciality Hospital
+        </p>
+
+        <div class="buttons">
+
+          <a href="tel:+918362372222">
+            Call
+          </a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=SDM+College+of+Medical+Sciences+Hospital+Dharwad"
+            target="_blank">
+            Directions
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hospital-card"
+           data-type="private multispeciality emergency"
+           data-name="SDM Narayana Heart Centre">
+
+        <span class="hospital-type">MULTISPECIALITY</span>
+
+        <h3>SDM Narayana Heart Centre</h3>
+
+        <p>
+          SDM Campus, Sattur, Dharwad
+        </p>
+
+        <p>
+          Heart & Cardiac Care
+        </p>
+
+        <div class="buttons">
+
+          <a href="tel:+918062154135">
+            Call
+          </a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=SDM+Narayana+Heart+Centre+Dharwad"
+            target="_blank">
+            Directions
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EMERGENCY -->
+  <section class="emergency-section">
+    <h2>Emergency Hospitals</h2>
+
+    <div class="hospital-grid">
+
+      <div class="hospital-card"
+           data-type="emergency government"
+           data-name="District Civil Hospital Dharwad">
+
+        <span class="hospital-type">EMERGENCY</span>
+
+        <h3>District Civil Hospital</h3>
+
+        <p>
+          Killa Road, Dharwad
+        </p>
+
+        <p>
+          Emergency contact: 0836-2448111
+        </p>
+
+        <div class="buttons">
+
+          <a href="tel:08362448111">
+            Call
+          </a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=District+Civil+Hospital+Dharwad"
+            target="_blank">
+            Directions
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hospital-card"
+           data-type="emergency private"
+           data-name="Chirayu Multi Speciality Hospital">
+
+        <span class="hospital-type">EMERGENCY</span>
+
+        <h3>Chirayu Multi Speciality Hospital</h3>
+
+        <p>
+          Malmaddi, Dharwad
+        </p>
+
+        <p>
+          Open 24 Hours
+        </p>
+
+        <div class="buttons">
+
+          <a href="tel:+919019267676">
+            Call
+          </a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Chirayu+Multi+Speciality+Hospital+Dharwad"
+            target="_blank">
+            Directions
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hospital-card"
+           data-type="emergency private"
+           data-name="Unity Super Speciality Hospital">
+
+        <span class="hospital-type">EMERGENCY</span>
+
+        <h3>Unity Super Speciality Hospital</h3>
+
+        <p>
+          Dharwad
+        </p>
+
+        <p>
+          Open 24 Hours
+        </p>
+
+        <div class="buttons">
+
+          <a href="tel:+918147266202">
+            Call
+          </a>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Unity+Super+Speciality+Hospital+Dharwad"
+            target="_blank">
+            Directions
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map-section">
+
+    <h2>Hospitals on Map</h2>
+
+    <div class="map-box">
+
+      <iframe
+        src="https://www.google.com/maps?q=hospitals+in+Dharwad,+Karnataka&output=embed"
+        loading="lazy">
+      </iframe>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      © 2026 Dharwad Hospital Directory
+    </p>
+
+    <p style="margin-top:8px;">
+      Emergency: 108
+    </p>
+
+  </footer>
+
+  <script>
+
+    let currentFilter = "all";
+
+    function filterHospitals(type, button) {
+
+      currentFilter = type;
+
+      document
+        .querySelectorAll(".filter-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+      button.classList.add("active");
+
+      searchHospitals();
+    }
+
+    function searchHospitals() {
+
+      const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+      const cards =
+        document.querySelectorAll(".hospital-card");
+
+      cards.forEach(card => {
+
+        const name =
+          card.dataset.name.toLowerCase();
+
+        const type =
+          card.dataset.type.toLowerCase();
+
+        const matchesSearch =
+          name.includes(search) ||
+          type.includes(search);
+
+        const matchesFilter =
+          currentFilter === "all" ||
+          type.includes(currentFilter);
+
+        if (matchesSearch && matchesFilter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>

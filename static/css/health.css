@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    background: #176b87;
+    color: white;
+    padding: 20px;
+}
+
+.hospital-list {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.hospital {
+    background: white;
+    margin: 12px 0;
+    padding: 15px;
+    border-left: 4px solid #176b87;
+}
+
+.hospital h2 {
+    margin: 0 0 8px;
+    color: #176b87;
+}
+
+.hospital p {
+    margin: 6px 0;
+}
+
+a {
+    color: #176b87;
+    font-weight: bold;
+}
+
+.emergency {
+    width: 90%;
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 15px;
+    background: #ffe5e5;
+    border-left: 4px solid red;
+}

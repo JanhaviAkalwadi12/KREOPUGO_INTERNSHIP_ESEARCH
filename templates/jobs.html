@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jobs & Career Opportunities | Dharwad Search</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f1df;
+            color: #173f3f;
+            line-height: 1.6;
+        }
+
+        /* Back Button */
+        .back {
+            display:inline-block;
+            margin-top:30px;
+            background:#d2a548;
+            color:#183b39;
+            padding:11px 22px;
+            border-radius:25px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .back:hover {
+            color: #173f3f;
+        }
+
+        /* Header */
+        header {
+            width: 88%;
+            margin: auto;
+            padding: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .heading {
+            flex: 1;
+        }
+
+        .heading small {
+            color: #b58b28;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .heading h1 {
+            font-size: 42px;
+            margin: 10px 0;
+        }
+
+        .heading p {
+            max-width: 650px;
+            color: #555;
+            font-size: 17px;
+        }
+
+        .job-image {
+            width: 250px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Search */
+        .search-box {
+            width: 88%;
+            margin: 10px auto 35px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 15px 18px;
+            border: 2px solid #d4c69d;
+            border-radius: 30px;
+            outline: none;
+            font-size: 16px;
+            background: white;
+        }
+
+        .search-box button {
+            padding: 14px 25px;
+            border: none;
+            border-radius: 30px;
+            background: #173f3f;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Section */
+        section {
+            width: 88%;
+            margin: 45px auto;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* Job Cards */
+        .jobs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .job-card {
+            background: white;
+            padding: 23px;
+            border-radius: 15px;
+            border-left: 5px solid #b58b28;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .job-card h3 {
+            margin-bottom: 8px;
+            color: #173f3f;
+        }
+
+        .job-card .type {
+            display: inline-block;
+            background: #e9dfbd;
+            color: #173f3f;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .job-card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* Opportunities */
+        .opportunities {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .opportunity {
+            background: #173f3f;
+            color: white;
+            padding: 22px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .opportunity span {
+            font-size: 30px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .opportunity h3 {
+            font-size: 17px;
+        }
+
+        /* Outsiders Section */
+        .outside {
+            background: #e8dfc2;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .outside h2 {
+            margin-bottom: 12px;
+        }
+
+        .outside ul {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .outside li {
+            margin: 8px 0;
+        }
+
+        /* Tip */
+        .tip {
+            background: #173f3f;
+            color: white;
+            padding: 25px;
+            border-radius: 18px;
+            margin-bottom: 50px;
+        }
+
+        .tip h2 {
+            color: #e5c35b;
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: #173f3f;
+            color: white;
+            padding: 22px;
+        }
+
+        footer span {
+            color: #e5c35b;
+        }
+
+        /* Responsive */
+        @media(max-width: 900px) {
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .job-image {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .jobs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .opportunities {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            .heading h1 {
+                font-size: 32px;
+            }
+
+            .jobs {
+                grid-template-columns: 1fr;
+            }
+
+            .opportunities {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box button {
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+
+        <div class="heading">
+
+            <small>DHARWAD SEARCH</small>
+
+            <h1>Jobs & Career Opportunities</h1>
+
+            <p>
+                Dharwad and the wider Hubballi–Dharwad region offer
+                opportunities in education, engineering, banking, healthcare,
+                IT, manufacturing, business, retail and other sectors.
+            </p>
+             <!-- Back -->
+            <a href="/Main.html" class="back">← Go Back</a>
+        </div>
+
+        <!-- One image only -->
+        <img
+            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=700&q=80"
+            class="job-image"
+            alt="People working together"
+        >
+
+    </header>
+
+
+    <!-- Search -->
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="jobSearch"
+            placeholder="Search jobs e.g. Engineer, Teacher, Banking..."
+        >
+
+        <button onclick="searchJobs()">Search</button>
+
+    </div>
+
+
+    <!-- Recent Jobs -->
+    <section>
+
+        <div class="section-title">
+
+            <h2>Recent Job Opportunities</h2>
+
+            <p>
+                Examples of roles that job seekers can look for in the
+                Dharwad–Hubballi region.
+            </p>
+
+        </div>
+
+
+        <div class="jobs" id="jobList">
+
+            <div class="job-card">
+                <span class="type">Engineering</span>
+                <h3>Junior Project Engineer</h3>
+                <p>
+                    Opportunities for Diploma and Engineering graduates
+                    in project and technical work.
+                </p>
+            </div>
+
+
+            <div class="job-card">
+                <span class="type">Manufacturing</span>
+                <h3>Machine Operator</h3>
+                <p>
+                    Manufacturing companies provide opportunities for
+                    ITI and technically trained candidates.
+                </p>
+            </div>
+
+
+            <div class="job-card">
+                <span class="type">Office</span>
+                <h3>Purchase Officer</h3>
+                <p>
+                    Graduates can explore purchasing, administration and
+                    business-support positions.
+                </p>
+            </div>
+
+
+            <div class="job-card">
+                <span class="type">Banking</span>
+                <h3>Banking & Finance</h3>
+                <p>
+                    Banks and financial institutions offer roles in
+                    customer service, sales and relationship management.
+                </p>
+            </div>
+
+
+            <div class="job-card">
+                <span class="type">Education</span>
+                <h3>Teaching & Academic Jobs</h3>
+                <p>
+                    Schools, colleges and educational institutions create
+                    opportunities for qualified teachers and lecturers.
+                </p>
+            </div>
+
+
+            <div class="job-card">
+                <span class="type">Healthcare</span>
+                <h3>Hospital & Healthcare Jobs</h3>
+                <p>
+                    Hospitals and healthcare organisations provide
+                    administrative, technical and support positions.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Career Areas -->
+    <section>
+
+        <div class="section-title">
+
+            <h2>Major Career Areas in Dharwad</h2>
+
+            <p>
+                Different sectors where students, graduates and skilled
+                workers can explore opportunities.
+            </p>
+
+        </div>
+
+
+        <div class="opportunities">
+
+            <div class="opportunity">
+                <span>💻</span>
+                <h3>IT & Technology</h3>
+            </div>
+
+            <div class="opportunity">
+                <span>🏭</span>
+                <h3>Manufacturing</h3>
+            </div>
+
+            <div class="opportunity">
+                <span>🎓</span>
+                <h3>Education</h3>
+            </div>
+
+            <div class="opportunity">
+                <span>🏥</span>
+                <h3>Healthcare</h3>
+            </div>
+
+            <div class="opportunity">
+                <span>🏦</span>
+                <h3>Banking</h3>
+            </div>
+
+            <div class="opportunity">
+                <span>📊</span>
+                <h3>Business & Sales</h3>
+            </div>
+
+            <div class="opportunity">
+                <span>🚚</span>
+                <h3>Logistics</h3>
+            </div>
+
+            <div class="opportunity">
+                <span>🔧</span>
+                <h3>Skilled Jobs</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- For people from outside Dharwad -->
+    <section>
+
+        <div class="outside">
+
+            <h2>🌍 Opportunities for People from Outside Dharwad</h2>
+
+            <p>
+                Dharwad is part of the Hubballi–Dharwad urban region,
+                making it possible for people from other cities and states
+                to explore education and employment opportunities here.
+            </p>
+
+            <br>
+
+            <ul>
+
+                <li>
+                    Engineering and manufacturing companies offer
+                    technical and production-related jobs.
+                </li>
+
+                <li>
+                    Educational institutions provide teaching,
+                    research and administrative opportunities.
+                </li>
+
+                <li>
+                    Banks and financial organisations provide
+                    customer service and business roles.
+                </li>
+
+                <li>
+                    Healthcare organisations offer professional and
+                    support positions.
+                </li>
+
+                <li>
+                    IT and business organisations provide opportunities
+                    for graduates with digital skills.
+                </li>
+
+                <li>
+                    Freshers can search for internships, trainee positions
+                    and entry-level jobs.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Government Jobs -->
+    <section>
+
+        <div class="section-title">
+
+            <h2>🏛️ Government & Public Sector</h2>
+
+            <p>
+                Job seekers can regularly check official recruitment
+                notifications from government departments and
+                educational institutions.
+            </p>
+
+        </div>
+
+
+        <div class="job-card">
+
+            <h3>Where to Look</h3>
+
+            <p>
+                Government offices, educational institutions,
+                public-sector organisations and employment services

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Spots | Dharwad Search</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f1df;
+            color: #173f3f;
+            line-height: 1.6;
+        }
+
+        /* Back Button */
+        .back {
+            display:inline-block;
+            margin-top:30px;
+            background:#d2a548;
+            color:#183b39;
+            padding:11px 22px;
+            border-radius:25px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        /* Header */
+        header {
+            width: 86%;
+            margin: auto;
+            padding: 20px 0 35px;
+        }
+
+        .tag {
+            color: #a77c20;
+            font-size: 14px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin: 8px 0;
+        }
+
+        .intro {
+            max-width: 750px;
+            color: #5c5c5c;
+            font-size: 17px;
+        }
+
+        /* Main Section */
+        .shopping-area {
+            width: 86%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .small-images {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .small-images img {
+            width: 145px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 14px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        .image-note {
+            margin-top: 12px;
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* Spots */
+        .spots {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .spot {
+            background: white;
+            padding: 22px;
+            border-radius: 16px;
+            border-top: 4px solid #b58b28;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .spot:hover {
+            transform: translateY(-5px);
+        }
+
+        .number {
+            font-size: 14px;
+            color: #b58b28;
+            font-weight: bold;
+        }
+
+        .spot h2 {
+            font-size: 21px;
+            margin: 5px 0;
+        }
+
+        .spot p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* What to Buy */
+        .buy-section {
+            width: 86%;
+            margin: 55px auto;
+        }
+
+        .buy-section h2 {
+            margin-bottom: 18px;
+            font-size: 28px;
+        }
+
+        .items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .item {
+            background: #173f3f;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+        }
+
+        /* Local Shopping */
+        .local-box {
+            width: 86%;
+            margin: 45px auto;
+            background: #e7ddbd;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .local-box h2 {
+            margin-bottom: 10px;
+        }
+
+        .local-box p {
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            background: #173f3f;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        footer span {
+            color: #e3bd50;
+        }
+
+        /* Responsive */
+        @media(max-width: 800px) {
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .shopping-area {
+                grid-template-columns: 1fr;
+            }
+
+            .spots {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 500px) {
+
+            .small-images img {
+                width: 130px;
+                height: 100px;
+            }
+
+            .intro {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <div class="tag">DHARWAD SEARCH</div>
+
+        <h1>Major Shopping Spots in Dharwad</h1>
+
+        <p class="intro">
+            Dharwad has a mix of traditional markets, busy shopping streets
+            and modern stores. The older shopping areas are especially useful
+            for exploring local products, clothing, food items and everyday
+            goods.
+        </p>
+
+        <!-- Back -->
+        <a href="/Main.html" class="back">← Go Back</a>
+
+
+    </header>
+
+
+    <!-- Main Shopping Area -->
+    <div class="shopping-area">
+
+        <!-- Only 2 small images -->
+        <div>
+
+            <div class="small-images">
+
+                <img
+                    src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=500&q=80"
+                    alt="Shopping market"
+                >
+
+                <img
+                    src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=500&q=80"
+                    alt="Local shopping"
+                >
+
+            </div>
+
+            <p class="image-note">
+                Local markets and shopping areas of Dharwad
+            </p>
+
+        </div>
+
+
+        <!-- Shopping Spots -->
+        <div class="spots">
+
+            <div class="spot">
+
+                <div class="number">01</div>
+
+                <h2>Dharwad Lower Market</h2>
+
+                <p>
+                    A local market area in Dharwad where visitors can
+                    explore everyday goods and local shopping.
+                </p>
+
+            </div>
+
+
+            <div class="spot">
+
+                <div class="number">02</div>
+
+                <h2>Subash Road</h2>
+
+                <p>
+                    One of the important shopping stretches of Dharwad,
+                    connecting the bus-stand area towards Gandhi Chowk.
+                </p>
+
+            </div>
+
+
+            <div class="spot">
+
+                <div class="number">03</div>
+
+                <h2>Gandhi Chowk</h2>
+
+                <p>
+                    A central old-city area surrounded by shops and
+                    commercial activity.
+                </p>
+
+            </div>
+
+
+            <div class="spot">
+
+                <div class="number">04</div>
+
+                <h2>Sadar Bazar</h2>
+
+                <p>
+                    A traditional shopping area known for clothing,
+                    handicrafts and other local products.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- What to Buy -->
+    <section class="buy-section">
+
+        <h2>🛍️ What Can You Buy?</h2>
+
+        <div class="items">
+
+            <div class="item">Traditional Clothing</div>
+
+            <div class="item">Cotton Fabrics</div>
+
+            <div class="item">Handicrafts</div>
+
+            <div class="item">Jewellery</div>
+
+            <div class="item">Books</div>
+
+            <div class="item">Local Food Products</div>
+
+            <div class="item">Dharwad Peda</div>
+
+            <div class="item">Everyday Goods</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Local Shopping -->
+    <section class="local-box">
+
+        <h2>✨ Experience Local Dharwad</h2>
+
+        <p>
+            Shopping in Dharwad is not only about buying products.
+            Traditional markets allow visitors to experience the city's
+            everyday life, local culture and old-city atmosphere.
+            Dharwad's shopping areas are particularly suitable for people
+            looking for regional products and traditional items.
+        </p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 <span>Dharwad Search</span> |
+            Explore • Learn • Discover
+        </p>
+
+    </footer>
+
+</body>
+</html>

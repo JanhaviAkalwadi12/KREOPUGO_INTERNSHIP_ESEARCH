@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency - Dharwad Search</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background:#f5f2e9;
+    color:#183c3b;
+    line-height:1.0;
+}
+
+.hero{
+    background:#123d3b;
+    color:white;
+    padding:25px 8%;
+}
+
+.hero h1{
+    font-size:45px;
+}
+
+.hero p{
+    margin-top:10px;
+    color:#d9e5df;
+}
+
+.container{
+    width:85%;
+    max-width:1100px;
+    margin:auto;
+    padding:40px 0;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 18px #0001;
+}
+
+.card h2{
+    margin-bottom:10px;
+}
+
+.number{
+    font-size:28px;
+    font-weight:bold;
+    color:#b33b3b;
+}
+
+.info{
+    margin-top:35px;
+    background:#fff4d6;
+    padding:25px;
+    border-radius:15px;
+}
+
+.back{
+    display:inline-block;
+    margin-top:30px;
+    background:#d5a548;
+    color:#173D35;
+    padding:12px 25px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+    text-align: center;
+}
+
+
+
+footer{
+    background:#123d3b;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:700px){
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+    <h1>🚨 Emergency Services</h1>
+    <p>Important emergency information for Dharwad.</p>
+    <center>
+    <a href="/Main.html" class="back">← Go Back</a></center>
+</header>
+
+<main class="container">
+
+<div class="cards">
+
+<div class="card">
+<h2>👮 Police</h2>
+<p class="number">112</p>
+<p>For police and other urgent emergency assistance.</p>
+</div>
+
+<div class="card">
+<h2>🚑 Ambulance</h2>
+<p class="number">108</p>
+<p>Emergency ambulance service in Karnataka.</p>
+</div>
+
+<div class="card">
+<h2>🔥 Fire & Rescue</h2>
+<p class="number">101</p>
+<p>For fire and rescue emergencies.</p>
+</div>
+
+<div class="card">
+<h2>👶 Child Helpline</h2>
+<p class="number">1098</p>
+<p>Helpline for children who need assistance.</p>
+</div>
+
+<div class="card">
+<h2>👩 Women Helpline</h2>
+<p class="number">1091</p>
+<p>Helpline for women requiring assistance.</p>
+</div>
+
+<div class="card">
+<h2>💻 Cyber Crime</h2>
+<p class="number">1930</p>
+<p>For reporting cyber-crime related incidents.</p>
+</div>
+
+</div>
+
+<div class="info">
+<h2>What to do during an emergency?</h2>
+<p>
+Stay calm and clearly explain the situation. Give your exact location
+or a nearby landmark and follow the instructions provided by emergency
+personnel.
+</p>
+</div>
+
+</main>
+
+<footer>
+Dharwad Search • Emergency Information
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>dharwada Search</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="stylesheet" href="/static/css/features.css">
+</head>
+<body>
+    <!-- DHARWAD MITRA FLOATING CHATBOT -->
+
+<div class="mitra-container">
+
+    <div class="mitra-tooltip">
+        Hello, I am your Dharwad Mitra ✨
+    </div>
+
+    <button class="mitra-float-btn" id="mitraOpen">
+        ✧
+    </button>
+
+    <!-- Chatbot popup -->
+    <div class="mitra-popup" id="mitraPopup">
+
+        <div class="mitra-header">
+            <div>
+                <h3>✦ Dharwad Mitra</h3>
+                <p>Your personal Dharwad travel guide</p>
+            </div>
+
+            <button class="mitra-close" id="mitraClose">×</button>
+        </div>
+
+        <div class="mitra-content" id="mitraContent">
+
+            <div class="mitra-message bot-message">
+                Namaskara! Welcome to Dharwad! 🌿
+                <br><br>
+                I am your Dharwad Mitra. I can help you plan a wonderful trip around our city.
+                <br><br>
+                How much time do you have?
+            </div>
+
+            <div class="mitra-options">
+                <button onclick="planTrip('Half Day')">Half Day</button>
+                <button onclick="planTrip('1 Day')">1 Day</button>
+                <button onclick="planTrip('2 Days')">2 Days</button>
+            </div>
+
+        </div>
+
+        <div class="mitra-input-area">
+            <input type="text" id="mitraInput"
+                   placeholder="Ask me about Dharwad...">
+
+            <button onclick="sendMitraMessage()">➤</button>
+        </div>
+
+    </div>
+
+</div>
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+<main id="mainWebsite">
+<!-- ================= NAVIGATION ================= -->
+<header class="navbar">
+    <div class="logo">
+        Dharwada<span>Search</span>
+    </div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#food">Food</a>
+        <a href="#places">Places</a>
+        <a href="#people">People</a>
+        <a href="#education">Education</a>
+    </nav>
+    <button
+        class="category-button"
+        onclick="openCategories()">
+        ☰ Categories
+    </button>
+</header>
+<!-- =====================================================
+     CATEGORY POPUP
+===================================================== -->
+<div
+    class="category-overlay"
+    id="categoryOverlay"
+    onclick="closeCategories()">
+</div>
+<div class="category-popup" id="categoryPopup">
+    <button
+        class="category-close"
+        onclick="closeCategories()">
+        ×
+    </button>
+    <h2>Explore Dharwada</h2>
+    <p class="category-subtitle">
+        Select a category
+    </p>
+    <div class="category-grid">
+        <a href="/emrg.html" onclick="closeCategories()">
+            <span>⚠</span>
+            Emergency
+        </a>
+        <a href="/hist.html" onclick="closeCategories()">
+            <span>🧾</span>
+            History
+        </a>
+        <a href="/health.html" onclick="closeCategories()">
+            <span>🏥</span>
+            Hospitals and Helth care
+        </a>
+        <a href="/food.html" onclick="closeCategories()">
+            <span>🥘</span>
+            Food and Retuarants
+        </a>
+        <a href="/hotels.html" onclick="closeCategories()">
+            <span>🏨</span>
+             <center>Hotels and Accommodations</center>
+        </a>
+        <a href="/education.html" onclick="closeCategories()">
+            <span>🎓</span>
+            Education
+        </a>
+        <a href="/transport.html" onclick="closeCategories()">
+            <span>🚌</span>
+            Transport
+        </a>
+        <a href="/governament.html" onclick="closeCategories()">
+            <span>🏛</span>
+            Government Services
+        </a>
+        <a href="/bank.html" onclick="closeCategories()">
+            <span>🏦</span>
+            Banks
+        </a>
+        <a href="/jobs.html" onclick="closeCategories()">
+            <span>💼</span>
+            Jobs
+        </a>
+        <a href="/shopping.html" onclick="closeCategories()">
+            <span>🛒</span>
+            Shopping
+        </a>
+        <a href="/Daily.html" onclick="closeCategories()">
+            <span>📆</span>
+            Daily Services
+        </a>
+        <a href="/Entertainment.html" onclick="closeCategories()">
+            <span>📺</span>
+            Entertainment
+        </a>
+        <a href="/sports.html" onclick="closeCategories()">
+            <span>🤾‍♀️</span>
+            Fitness and Sports
+        </a>
+        <a href="/contact.html" onclick="closeCategories()">
+            <span>☎</span>
+            contact
+        </a>
+        <a href="/help.html" onclick="closeCategories()">
+            <span>🤝</span>
+            Help
+        </a>
+    </div>
+</div>
+<!-- =====================================================
+     SLIDING IMAGE SECTION
+===================================================== -->
+<section class="slider-section" id="home">
+    <div class="slider">
+        <div class="slide active">
+            <img src="/static/images/misc/KUD.jpg" alt="Karnatak University Dharwad">
+            <div class="slide-text">
+                <p>EDUCATIONAL HUB</p>
+                <h1>
+                    Karnatak University
+                </h1>
+                <span>
+                    Jnana Degula.
+                </span>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="/static/images/misc/view.jpg" alt="Dharwad City">
+            <div class="slide-text">
+                <p>DISCOVER</p>
+                <h1>
+                    Naisargika Dharwada
+                </h1>
+                <span>
+                    Feel the rythm of Nature.
+                </span>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="/static/images/food/kanavali.avif" alt="Dharwad Food">
+            <div class="slide-text">
+                <p>Dharawada Vaishishtyate</p>
+                <h1>
+                    Ruchiya Sogadu
+                </h1>
+                <span>
+                    Traditional Flavours of Uttara Karnataka
+                </span>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="/static/images/misc/DF.jpg" alt="Dharwad Heritage">
+            <div class="slide-text">
+                <p>EXPLORE</p>
+                <h1>
+                    Dharavaibhava
+                </h1>
+                <span>
+                    Where heritage meets life.
+                </span>
+            </div>
+        </div>
+        <!-- Slider buttons -->
+        <button
+            class="prev"
+            onclick="changeSlide(-1)">
+            ❮
+        </button>
+        <button
+            class="next"
+            onclick="changeSlide(1)">
+            ❯
+        </button>
+        <!-- Dots -->
+        <div class="dots">
+            <span
+                class="dot active-dot"
+                onclick="currentSlide(1)">
+            </span>
+            <span
+                class="dot"
+                onclick="currentSlide(2)">
+            </span>
+            <span
+                class="dot"
+                onclick="currentSlide(3)">
+            </span>
+            <span
+                class="dot"
+                onclick="currentSlide(4)">
+            </span>
+        </div>
+    </div>
+</section>
+
+
+<!-- Explore Dharwad Map Section -->
+<section id="explore-map">
+    <h2>Explore Dharwad</h2>
+    <p>
+        Discover the beautiful places of Dharwad
+        with our interactive map.
+    </p>
+    <!-- Map Search -->
+    <div class="map-search">
+       <input type="text" id="placeSearch" placeholder="Search places in Dharwad...">
+       <button onclick="searchPlace()">Search</button>
+    </div>
+    <div class="map-container">
+        <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=75.00%2C15.40%2C75.20%2C15.55&layer=mapnik&marker=15.4589%2C75.0078"
+            title="Explore Dharwad Map"
+            loading="lazy">
+        </iframe>
+    </div>
+    <p class="map-note">
+        Use the map to zoom in, zoom out, and
+        explore locations around Dharwad.
+    </p>
+</section>
+
+<section class="ad-section">
+    <div class="ad-container">
+        <button class="ad-close" onclick="this.parentElement.parentElement.style.display='none'">
+            ✕
+        </button>
+        <p class="ad-title">Advertisement</p>
+        <img src="/static/images/places/Dharwada%20Utsav.png" alt="Advertisement">
+    </div>
+</section>
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+<section class="content-section about-section" id="about">
+    <div class="section-text">
+        <p class="small-title">
+          DHARWADA
+        </p>
+        <h2>
+            The Heart of<br>
+            North Karnataka.
+        </h2>
+        <p>
+            Dharwada is a historic spot in the state of karnataka and
+            an a important cultural and educational centre of north karnataka.
+            It has a rich Heritage shaoed by a several dynastis, includig,chalukyas,rastrakutas,
+            vijayanagara rulers and later deccan powers.
+        </p>
+        <p>
+            Dharwada is known for its contributions to Kannada Literature,Hindustani Clasical Music,
+            Education and Arts.Its Historical Landmarks,Traditional Culture and Educational Institutions
+            have given the city a unique identity.
+        </p>
+    </div>
+    <div class="section-images">
+    <img 
+        src="/static/images/places/someshwara.jpeg"
+        alt="Dharwad"
+        class="section-image">
+        <br>
+     <img
+        src="/static/images/greenery/shalmala.png"
+        alt="Dharwad"
+        class="section-image">
+        <br>
+     <img
+        src="/static/images/misc/chandra.jpeg"
+        alt="Dharwad"
+        class="section-image">
+        <br>
+    </div>
+</section>
+
+
+<!-- FORENSIC SCIENCE SECTION -->
+
+<section id="forensic-science" class="forensic-section">
+
+    <h2>Forensic Science Institutions in Dharwad</h2>
+
+    <h3>National Forensic Sciences University (NFSU)</h3>
+
+    <p>
+        Dharwad is home to the National Forensic Sciences University (NFSU),
+        an institution dedicated to education and research in forensic
+        sciences and allied fields. The Dharwad campus aims to strengthen
+        forensic science education in Karnataka and neighbouring states.
+    </p>
+
+    <p>
+        Forensic Science applies scientific knowledge to investigations
+        and the justice system. It includes areas such as forensic biology,
+        chemistry, fingerprints, forensic psychology and digital forensics.
+    </p>
+
+    <h3>Courses and Academic Areas</h3>
+
+    <ul>
+        <li>Integrated B.Sc.–M.Sc. Forensic Science</li>
+        <li>B.Tech–M.Tech Computer Science and Engineering (Cyber Security specialization)</li>
+        <li>Professional Diploma in Crime Scene Management</li>
+    </ul>
+
+    <h3>Institution Details</h3>
+
+    <p><strong>Address:</strong> WALMI Campus, Near High Court,
+    P.B. Road, Belur Industrial Area, Dharwad – 580011.</p>
+
+    <p><strong>Phone:</strong> 9481515684</p>
+
+    <p><strong>Email:</strong> admin_dharwad@nfsu.ac.in</p>
+
+    <a href="https://dharwad.nfsu.ac.in/"
+       target="_blank" rel="noopener noreferrer"
+       class="forensic-link">
+       Visit Official Website
+    </a>
+
+</section>
+
+<!-- =====================================================
+     GREENERY
+===================================================== -->
+<section class="content-section greenery-section" id="greenery">
+    <div class="section-image-box" height="100px" width="2">
+        <img src="/static/images/education/agri0_uni.jpg" alt="Greenery of Dharwad"><br>
+        <img src="/static/images/places/dharwadcity.jpg" alt="Greenery of Dharwad"><br>
+        <img src="/static/images/greenery/lake.jpg" alt="Greenery of Dharwad">
+    </div>
+    <div class="section-text">
+        <p class="small-title">
+           <h2>Nisarga</h2>
+        </p>
+        <h3>
+            Feel the rythm of nature.
+        </h3><br><br>
+        <p>
+            "Every green corner of dharwada carries a littel peace."
+            From leafy streets to relaxing parks,nature adds beauty of 
+            city and offers people a place to pause,breeth,and reconnect.
+        </p>
+        <p>
+            The shade of tress,freeshh breeze,and peaceful green spaces add a 
+            special charm to everydaylife.
+        </p>
+    </div>
+</section>
+<!-- PLAN MY DHARWAD TRIP -->
+<section class="trip-section">
+    <h2>Plan My Dharwad Trip</h2>
+    <p>Plan your Dharwad visit according to the time you have.</p>
+    <div class="trip-options">
+        <button onclick="planTrip('1 Day')">1 Day</button>
+        <button onclick="planTrip('2 Days')">2 Days</button>
+        <button onclick="planTrip('3 Days')">3 Days</button>
+    </div>
+    <div id="tripResult"></div>
+</section>
+
+
+<!-- =====================================================
+     FOOD
+===================================================== -->
+<section class="food-section" id="food">
+    <div class="food-content">
+        <p class="small-title">
+           <h3>DHARWADA VAISHISHTYATE</h3>
+        </p><br>
+        <h2>
+            Ruchiya<br>
+            Sogadu.
+        </h2>
+        <p>
+            Dharwada is known for its rich and authentic
+            food culture. From the famous
+            <b>Dharwada Peda</b> and traditional
+            <b>Jolada Rotti</b> to delicious Khanavali
+            meals, every dish carries the taste of
+            Uttara Karnataka.
+        </p>
+        <p>
+            Simple ingredients and traditional recipes
+            create unforgettable flavours.
+        </p>
+        <button class="taste-button">
+            Taste of Dharwada
+        </button>
+    </div>
+
+
+    <!-- Scattered food images -->
+    <img src="/static/images/food/peda2.webp"
+         class="food-photo photo1"
+         alt="Dharwad Peda"
+         onclick="showFoodInfo('peda')">
+    <img src="/static/images/food/kadak-jowar-roti-3.jpg"
+         class="food-photo photo2"
+         alt="Jolada Rotti"
+         onclick="showFoodInfo('rotti')">
+    <img src="/static/images/food/kanavali.avif"
+         class="food-photo photo3"
+         alt="Khanavali"
+         onclick="showFoodInfo('khanavali')">
+    <img src="/static/images/misc/Gm.jpg"
+         class="food-photo photo5"
+         alt="Evening cravings"
+         onclick="showFoodInfo('girmit')">
+    <img src="/static/images/food/eggrice.jpg"
+         class="food-photo photo4"
+         alt="Special"
+         onclick="showFoodInfo('rice')">
+
+
+<!-- COMMON INFORMATION POPUP -->
+<div id="foodPopup" class="food-popup">
+    <div class="food-popup-content">
+        <button class="food-close" onclick="closeFoodInfo()">×</button>
+        <h2 id="foodTitle"></h2>
+        <h3 id="foodSubtitle"></h3>
+        <p id="foodDescription"></p>
+        <h3>🥣 How it is prepared</h3>
+        <p id="foodPreparation"></p>
+        <h3>📍 Where to find it in Dharwad</h3>
+        <p id="foodLocation"></p>
+        <button id="foodMapButton" class="food-map-btn">
+            📍 Find on Map
+        </button>
+    </div>
+</div>
+</section>
+
+
+<section class="visit-section" id="visit">
+
+    <div class="visit-heading">
+        <span>EXPLORE • EXPERIENCE • ENJOY</span>
+        <h1>Places to Visit in Dharwad</h1>
+        <p>
+            Discover the beauty, heritage and peaceful surroundings
+            of Dharwad.
+        </p>
+    </div>
+
+    <div class="visit-gallery">
+
+        <!-- 1. Nuggikeri Temple -->
+        <div class="visit-place featured">
+            <img src="{{ url_for('static', filename='images/greenery/nuggikeri2.jpeg') }}"
+                 alt="Nuggikeri Temple">
+
+            <div class="visit-info">
+                <span>01</span>
+                <h2>Nuggikeri Temple</h2>
+                <p>Experience the peaceful and spiritual atmosphere of this famous temple.</p>
+            </div>
+        </div>
+
+        <!-- 2. Sadhanakeri Garden -->
+        <div class="visit-place">
+            <img src="{{ url_for('static', filename='images/greenery/sadhankeri-garden-1082016.webp') }}"
+                 alt="Sadhanakeri Garden">
+
+            <div class="visit-info">
+                <span>02</span>
+                <h2>Sadhanakeri Garden</h2>
+                <p>Enjoy the greenery and peaceful surroundings.</p>
+            </div>
+        </div>
+
+        <!-- 3. Dharwad City -->
+        <div class="visit-place">
+            <img src="{{ url_for('static', filename='images/places/dwdcity.avif') }}"
+                 alt="Dharwad City">
+
+            <div class="visit-info">
+                <span>03</span>
+                <h2>Dharwad City</h2>
+                <p>Discover the charm and beauty of Dharwad.</p>
+            </div>
+        </div>
+
+        <!-- 4. Murugha Math -->
+        <div class="visit-place">
+            <img src="{{ url_for('static', filename='images/places/murgamatt.png') }}"
+                 alt="Murugha Math">
+
+            <div class="visit-info">
+                <span>04</span>
+                <h2>Murugha Math</h2>
+                <p>Explore a place of cultural and spiritual importance.</p>
+            </div>
+        </div>
+
+        <!-- 5. Lake -->
+        <div class="visit-place">
+            <img src="{{ url_for('static', filename='images/greenery/lake.jpg') }}"
+                 alt="Lake">
+
+            <div class="visit-info">
+                <span>05</span>
+                <h2>Beautiful Lakes</h2>
+                <p>Enjoy the calm and refreshing natural surroundings.</p>
+            </div>
+        </div>
+
+        <!-- 6. Scenic Viewpoint -->
+        <div class="visit-place">
+            <img src="{{ url_for('static', filename='images/misc/view.jpg') }}"
+                 alt="Dharwad Scenic View">
+
+            <div class="visit-info">
+                <span>06</span>
+                <h2>Scenic Viewpoints</h2>
+                <p>Take in the beautiful views around Dharwad.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="visit-footer">
+        <h2>Explore More. Discover Dharwad.</h2>
+        <p>Make beautiful memories in the heart of North Karnataka.</p>
+    </div>
+
+</section>
+<!-- =====================================================
+     FAMOUS THINGS
+===================================================== -->
+<section class="famous-section" id="famous">
+    <p class="small-title">
+        DHARWADA SPECIAL
+    </p>
+    <h2>
+    Dharwadada Prasidhate
+
+    </h2>
+    
+     <div class="special-list">
+        <a href="/peda.html" class="special-item">
+            <span class="number">01</span>
+            <span class="item-name">Dharwada Peda</span>
+        </a>
+        <a href="/litreture.html" class="special-item">
+            <span class="number">02</span>
+            <span class="item-name">Kannada Literature</span>
+        </a>
+        <a href="/hmm.html" class="special-item">
+            <span class="number">03</span>
+            <span class="item-name">Hindustani Music</span>
+        </a>
+        <a href="/education.html" class="special-item">
+            <span class="number">04</span>
+            <span class="item-name">Educational Institutions</span>
+        </a>
+    </div>
+</section>
+
+<!-- IIT & IIIT DHARWAD SECTION -->
+<section class="technology-education">
+    <h2>🎓 IIT & IIIT Dharwada</h2>
+    <p class="section-intro">
+        Dharwada is becoming an important centre for technology and
+        higher education in North Karnataka. IIT Dharwada and IIIT
+        Dharwada add to the city's growing reputation as an educational hub.
+    </p>
+    <div class="institute-container">
+        <!-- IIT DHARWAD -->
+        <div class="institute">
+            <img src="/static/images/education/iit.avif" alt="IIT Dharwad">
+            <div class="institute-info">
+                <h3>Indian Institute of Technology Dharwada</h3>
+                <p>
+                    IIT Dharwada is an Institute of National Importance
+                    established in 2016 under the Ministry of Education,
+                    Government of India. It started its academic journey
+                    under the mentorship of IIT Bombay.
+                </p>
+                <p>
+                    The institute offers programs in areas such as
+                    Computer Science and Engineering, Electrical and
+                    Electronics Engineering, Mechanical Engineering,
+                    Civil and Infrastructure Engineering, Engineering
+                    Physics, Mathematics and Computing, and other
+                    emerging areas.
+                </p>
+                <p>
+                    IIT Dharwada also offers postgraduate and research
+                    opportunities, including M.Tech, BS-MS and Ph.D.
+                    programs.
+                </p>
+                <a href="https://www.iitdh.ac.in/" target="_blank">
+                    Visit IIT Dharwada
+                </a>
+            </div>
+        </div>
+        <!-- IIIT DHARWAD -->
+        <div class="institute">
+            <img src="/static/images/education/iiit.jpg" alt="IIIT Dharwad">
+            <div class="institute-info">
+                <h3>Indian Institute of Information Technology Dharwada</h3>
+                <p>
+                    IIIT Dharwada was established in 2015 and is an
+                    Institute of National Importance. It focuses mainly
+                    on information technology, innovation, research
+                    and technology education.
+                </p>
+                <p>
+                    The institute provides education in areas including
+                    Computer Science and Engineering, Data Science and
+                    Artificial Intelligence, Electronics and Communication
+                    Engineering, and Artificial Intelligence and Computing.
+                </p>
+                <p>
+                    IIIT Dharwada aims to develop skilled technology
+                    professionals and encourage students to use technology
+                    to solve real-world problems.
+                </p>
+                <a href="https://iiitdwd.ac.in/" target="_blank">
+                    Visit IIIT Dharwada
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =====================================================
+     PLACES
+===================================================== -->
+<section class="places-section" id="places">
+
+    <div class="section-text">
+        <p class="small-title">DISCOVER</p>
+
+        <h2>Dara Nagari</h2>
+
+        <p>
+            Explore the historic, religious and natural attractions
+            of Dharwada.
+        </p>
+
+        <p>
+            Every corner of Dharwada has its own character, charm,
+            and story. Feel the calm around <b>Nuggikeri</b>,
+            step back in time at <b>Dharwada Fort</b>, and take in
+            beautiful views from the city's scenic viewpoints.
+            Whether it's a peaceful morning, an evening walk,
+            a cultural experience, or a spontaneous adventure,
+            Dharwada has places that turn ordinary moments
+            into beautiful memories.
+        </p>
+
+        <p>
+            <b>
+                "From ancient walls to peaceful water, from green
+                gardens to endless views — Dharwada is a journey
+                waiting to be explored."
+            </b>
+        </p>
+    </div>
+
+    <div class="places-gallery">
+
+        <img src="{{ url_for('static', filename='images/places/dwdcity.avif') }}"
+             alt="Dharwad City">
+
+        <img src="{{ url_for('static', filename='images/misc/view.jpg') }}"
+             alt="Dharwad Viewpoint">
+
+        <img src="{{ url_for('static', filename='images/greenery/nuggikeri2.jpeg') }}"
+             alt="Nuggikeri">
+
+        <img src="{{ url_for('static', filename='images/places/murgamatt.png') }}"
+             alt="Murugha Math">
+
+        <img src="{{ url_for('static', filename='images/greenery/lake.jpg') }}"
+             alt="Lake">
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     FAMOUS PEOPLE
+===================================================== -->
+<section class="people-section" id="people">
+    <p class="small-title">
+        GREAT PERSONALITIES
+    </p>
+    <h2>
+        Paramparika Dharawada
+    </h2>
+    <marquee behavior="scrollIntoView" direction="left" scrollamount="4">
+    <div class="people-gallery">
+        <div>
+            <img src="/static/images/people/D%20R%20Bendre.jpg" alt="D R Bendre">
+            <h3>D.R.Bendre</h3>
+        </div>
+        <div>
+            <img src="/static/images/people/Gangubai%20hangal.jpg" alt="Gangubai Hangal">
+            <h3>Gangubai Hangal</h3>
+        </div>
+        <div>
+            <img src="/static/images/people/Basavaraj%20Rajguru.jpg" alt="Basavaraj Rajguru">
+            <h3>Basavaraj Rajguru</h3>
+        </div>
+        <div>
+            <img src="/static/images/people/girish.jpg" alt="Girish Karnad">
+            <h3>Girish Karnad</h3>
+        </div>
+        <div>
+            <img src="/static/images/people/suresh.jpeg" alt="Suresh_Heblikar">
+            <h3>Suresh Heblikar</h3>
+        </div>
+        <div>
+            <img src="/static/images/people/Bhimsen%20Joshi.webp" alt="Bhimsen Joshi">
+            <h3>Bhimsen Joshi</h3>
+        </div>
+        <div>
+            <img src="/static/images/people/Sangeeta%20katti.jpg" alt="Sangeeta Katti">
+            <h3>Sangeeta Katti</h3>
+        </div>
+        <div>
+            <img src="/static/images/people/vkgokak.webp" alt="V K Gokak">
+            <h3>V K Gokak</h3>
+        </div>
+        <div>
+            <img src="/static/images/people/Mallikarjun_Mansur.jpg" alt="Mallikarjun Mansur">
+            <h3>Mallikarjun Mansur</h3>
+        </div>
+        <div>
+            <img src="/static/images/people/Shanta_Hublikar.jpg.jpeg" alt="Shanta Hublikar">
+            <h3>Shanta Hublikar</h3>
+        </div>
+        <div>
+            <img src="/static/images/people/960px-Dr_Chennaveera_Kanavi.jpg.jpeg" alt="Chennaveera Kanavi">
+            <h3>Chennaveera Kanavi</h3>
+        </div>
+        <div>
+            <img src="/static/images/misc/satyajeet.jpeg" alt="Sathyajeet">
+            <h3>Sathyajeet </h3>
+        </div>
+        <div>
+            <img src="/static/images/misc/99731485.jpg.jpeg" alt="Sunil Puranik">
+            <h3>Sunil Puranik </h3>
+        </div>
+        <div>
+            <img src="/static/images/people/Pandit.jpeg" alt="Pandit Venkatesh Kumar">
+            <h3>Pandit Venkatesh Kumar</h3>
+        </div>
+        <div>
+            <img src="/static/images/people/Pavan%20Deshpande.jpeg" alt="Pavan Deshpande">
+            <h3>Pavan Deshpande</h3>
+        </div>
+        <div>
+            <img src="/static/images/misc/aryankrupa.jpeg" alt="Alur Venkata Rao">
+            <h3>Alur Venkata Rao</h3>
+        </div>
+         <div>
+            <img src="/static/images/people/Palwankar%20Baloo.jpeg" alt="Palwankar Baloo">
+            <h3>Palwankar Baloo</h3>
+        </div>
+    </div>
+    </marquee>
+</section>
+
+
+<!-- =====================================================
+     EDUCATION
+===================================================== -->
+<section class="education-section" id="education">
+    <div>
+        <p class="small-title">
+            EDUCATIONAL HUB
+        </p>
+        <h2>
+            Jnanasiri dharwada.
+        </h2>
+        <p>
+            Dharwada is widely recognised for its educational
+            environment and institutions. Karnatak College
+            is one of the important landmarks of the city.<br>
+            The university of agricultural sciences,dharwada focuces
+            on agriculture,forming,research,and agricultural education.
+            Helps students learn modern forming techniques and contribute 
+            to the development of agriculture. <br>
+            IIT dharwada is a premier institute offering quality education
+            in engineering ,technologiesand research.It provides students 
+            with opportunities to learn,innovate, and develop technical skills. 
+        </p>
+    </div>
+    <div>
+        <img
+        src="/static/images/education/jss.png"
+        alt="Jss College Dharwad"><br>
+        <img
+        src="/static/images/education/kcd.jpg"
+        alt="Karnatak University Dharwad"><br>
+      <img
+        src="/static/images/education/agri.jpeg"
+        alt="Karnatak University Dharwad"><br>
+      <img
+        src="/static/images/education/iit.avif"
+        alt="Karnatak University Dharwad"><br>
+    </div>
+</section>
+
+
+<!-- =====================================================
+     6. CINEMATIC DHARWAD GALLERY
+===================================================== -->
+<section class="feature-section gallery-section" id="cinematic-gallery">
+    <p class="small-title">A CITY IN EVERY FRAME</p>
+    <h2>Cinematic Dharwada</h2>
+    <p class="feature-intro">
+        Scroll through the sights, flavours and stories of our city.
+    </p>
+    <div class="cinematic-reel">
+        <article class="reel-card">
+            <img src="/static/images/misc/DF.jpg" alt="Dharwad heritage">
+            <div class="reel-caption"><span>01 / HERITAGE</span><h3>Stories in Stone</h3></div>
+        </article>
+        <article class="reel-card">
+            <img src="/static/images/people/Gangubai%20hangal.jpg" alt="Dharwad music heritage">
+            <div class="reel-caption"><span>02 / CULTURE</span><h3>Echoes of Music</h3></div>
+        </article>
+        <article class="reel-card">
+            <img src="/static/images/food/peda2.webp" alt="Dharwad Peda">
+            <div class="reel-caption"><span>03 / FOOD</span><h3>A Taste of Tradition</h3></div>
+        </article>
+        <article class="reel-card">
+            <img src="/static/images/greenery/nature.jpg" alt="Dharwad city view">
+            <div class="reel-caption"><span>04 / STREETS</span><h3>Everyday Dharwada</h3></div>
+        </article>
+        <article class="reel-card">
+            <img src="/static/images/misc/view.jpg" alt="Dharwada nature">
+            <div class="reel-caption"><span>05 / NATURE</span><h3>Green and Serene</h3></div>
+        </article>
+        <article class="reel-card">
+            <img src="/static/images/places/celebration.jpg" alt="Dharawada local food and celebrations">
+            <div class="reel-caption"><span>06 / FESTIVALS</span><h3>Celebrating Together</h3></div>
+        </article>
+        <article class="reel-card">
+            <img src="/static/images/places/dwdcity.avif" alt="Dharwad city">
+            <div class="reel-caption"><span>07 / CITY LIFE</span><h3>Dharwada city.</h3></div>
+        </article>
+    </div>
+</section>
+
+<!-------------------------PLACES TO VISIT------------------------->
+
+<section class="places-section">
+
+    <div class="places-heading">
+        <span>Plan your trip</span>
+        <h1>Best places to visit</h1>
+
+
+    </div>
+
+    <div class="places-grid">
+
+        <article class="place-card" onclick="openPlace('Dharwad Fort')">
+            <img src="/static/images/greenery/sunset.jpg" alt="Historic architecture">
+            <div class="place-info">
+                <h3>Beautiful Sunset</h3>
+            </div>
+        </article>
+
+        <article class="place-card" onclick="openPlace('Sadhankeri Park Dharwad')">
+            <img src="/static/images/places/dwdcity.avif" alt="Green forest">
+            <div class="place-info">
+               <h3>Evening city view</h3>
+            </div>
+        </article>
+
+        <article class="place-card" onclick="openPlace('Karnatak University Dharwad')">
+            <img src="/static/images/food/cafe.avif" alt="University campus">
+            <div class="place-info">
+                <h3>Cafe visits</h3>
+            </div>
+        </article>
+
+        <article class="place-card" onclick="openPlace('Nuggikeri Hanuman Temple Dharwad')">
+            <img src="/static/images/greenery/nuggikeri.jpeg" alt="Temple architecture">
+            <div class="place-info">
+                <h3>Nuggikeri Temple</h3>
+            </div>
+        </article>
+
+        <article class="place-card" onclick="openPlace('D R Bendre Bhavan Dharwad')">
+            <img src="/static/images/people/bendre%20bhavana.jpeg" alt="Literature and books">
+            <div class="place-info">
+                <h3>D. R. Bendre Bhavan</h3>
+            </div>
+        </article>
+
+        <article class="place-card" onclick="openPlace('Regional Science Centre Dharwad')">
+            <img src="/static/images/greenery/kelgeri.jpg" alt="Science laboratory">
+            <div class="place-info">
+                <h3>Kelageri</h3>
+            </div>
+        </article>
+
+        <article class="place-card" onclick="openPlace('Unkal Lake Hubballi')">
+            <img src="/static/images/greenery/sadhankeri.avif" alt="Beautiful lake">
+            <div class="place-info">
+                <h3>Sadhankeri</h3>
+            </div>
+        </article>
+
+        <article class="place-card" onclick="openPlace('Chandramouleshwara Temple Unkal')">
+            <img src="/static/images/greenery/KCpark.jpg" alt="Ancient temple">
+            <div class="place-info">
+                <h3>KC Park</h3>
+            </div>
+        </article>
+
+
+    </div>
+</section>
+
+<script>
+function openPlace(place) {
+    const url =
+        "https://www.google.com/maps/search/?api=1&query=" +
+        encodeURIComponent(place + ", Karnataka, India");
+
+    window.open(url, "_blank", "noopener");
+}
+</script>
+
+       
+<!-- =====================================================
+     9. GUESS DHARWAD QUIZ
+===================================================== -->
+<section class="feature-section quiz-section" id="guess-dharwad">
+    <p class="small-title">TEST YOUR CITY KNOWLEDGE</p>
+    <h2>How Well Do You Know Dharwada?</h2>
+    <div id="quizBox">
+        <p id="quizProgress"></p>
+        <h3 id="quizQuestion"></h3>
+        <div id="quizAnswers" class="quiz-answers"></div>
+        <p id="quizFeedback" aria-live="polite"></p>
+        <button class="feature-button" id="nextQuestion" disabled>
+            Next Question
+        </button>
+    </div>
+    <div id="quizFinal" hidden></div>
+</section>
+
+
+<!-- =====================================================
+     10. CONTACT / SUGGEST A PLACE
+===================================================== -->
+<section class="feature-section contact-section" id="suggest-place">
+    <center>
+    <p class="small-title">HELP US GROW</p>
+    <h2>Feedback</h2>
+    <p class="feature-intro">
+        Know a place we should include? Share a suggestion or feedback.
+    </p>
+    <form id="suggestForm" class="suggest-form">
+        <label for="suggestName">Your name</label>
+        <input id="suggestName" name="name" required>
+        <label for="suggestEmail">Your email</label>
+        <input id="suggestEmail" name="email" type="email" required>
+        </select>
+        <label for="suggestMessage">Tell Your Opinion</label>
+        <textarea id="suggestMessage" name="message" rows="5" required></textarea>
+        <button class="feature-button" type="submit">Send Suggestion by Email</button>
+        <p class="form-note">
+            This opens your email application with the message prepared.
+            It does not send automatically.
+        </p>
+    </form>
+    </center>
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer>
+    <h2>Dharwada Search</h2>
+    <p>
+        Discover • Explore • Experience Dharwada
+    </p>
+    <p>
+        © 2026 Dharwada Search
+    </p>
+</footer>
+</main>
+<script src="/static/js/features.js"></script>
+</body>
+</html>

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kannada Literature of Dharwada</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background-color: #f5efe4;
+            color: #302a25;
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+
+        header {
+            background-color: #202625;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #e7d7bd;
+        }
+
+        /* INTRODUCTION */
+
+        .intro {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .intro h2 {
+            color: #704b2a;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .intro p {
+            font-size: 17px;
+        }
+
+        /* LITERARY PEOPLE */
+
+        .literary-person {
+            max-width: 1050px;
+            margin: 35px auto;
+            background-color: #fffaf2;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .person-top {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            border-bottom: 2px solid #d8c3a5;
+            padding-bottom: 20px;
+        }
+
+        .person-top img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 4px solid #d6b98c;
+        }
+
+        .person-top h2 {
+            color: #704b2a;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .person-top h3 {
+            color: #8a6a45;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        .person-content {
+            margin-top: 20px;
+        }
+
+        .person-content h3 {
+            color: #704b2a;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-size: 21px;
+        }
+
+        .person-content ul {
+            padding-left: 25px;
+        }
+
+        .person-content li {
+            margin-bottom: 5px;
+        }
+
+        /* AWARD BOX */
+
+        .award-box {
+            background-color: #eee1cd;
+            border-left: 5px solid #8a5b32;
+            padding: 15px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .award-box strong {
+            color: #663f20;
+        }
+
+        /* WORK BOX */
+
+        .work-box {
+            background-color: #f7f0e5;
+            padding: 15px 20px;
+            border-radius: 7px;
+            margin-top: 10px;
+        }
+
+        .work-box p {
+            margin-bottom: 5px;
+        }
+
+        /* HIGHLIGHT */
+
+        .highlight {
+            max-width: 1050px;
+            margin: 40px auto;
+            padding: 30px;
+            text-align: center;
+            background-color: #202625;
+            color: white;
+            border-radius: 12px;
+        }
+
+        .highlight h2 {
+            color: #e6cda9;
+            margin-bottom: 15px;
+        }
+
+        .highlight p {
+            font-size: 17px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background-color: #202625;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer span {
+            color: #e6cda9;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            .person-top {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .person-top img {
+                width: 130px;
+                height: 160px;
+            }
+
+            .literary-person {
+                margin: 20px 12px;
+                padding: 20px;
+            }
+
+        }
+        /* FLOATING KANNADA LETTERS AND KARNATAKA FLAGS */
+
+.floating-decorations {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Kannada letters */
+
+.floating-decorations .kannada-letter {
+    position: absolute;
+    top: -70px;
+    color: #d18a00;
+    font-family: "Noto Sans Kannada", sans-serif;
+    font-size: clamp(28px, 3.2vw, 44px);
+    font-weight: 800;
+    -webkit-text-stroke: 0.5px #ffdf80;
+    text-shadow:
+        0 0 5px rgba(255, 204, 0, 0.8),
+        0 0 12px rgba(255, 180, 0, 0.6),
+        1px 2px 3px rgba(70, 40, 0, 0.3);
+    animation: kannadaLetterFall linear infinite;
+}
+
+/* Karnataka flags */
+
+.floating-decorations .karnataka-flag {
+    position: absolute;
+    top: -90px;
+    width: 58px;
+    height: 37px;
+    border: 1px solid rgba(120, 60, 0, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    opacity: 0.7;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    animation: karnatakaFlagFall linear infinite;
+}
+
+.flag-yellow,
+.flag-red {
+    display: block;
+    width: 100%;
+    height: 50%;
+}
+
+.flag-yellow {
+    background: #ffcc00;
+}
+
+.flag-red {
+    background: #e31b23;
+}
+
+/* Letter positions */
+
+.kannada-letter:nth-child(1) {
+    left: 5%;
+    animation-duration: 13s;
+}
+
+.kannada-letter:nth-child(2) {
+    left: 17%;
+    animation-duration: 16s;
+    animation-delay: -8s;
+}
+
+.kannada-letter:nth-child(3) {
+    left: 32%;
+    animation-duration: 14s;
+    animation-delay: -4s;
+}
+
+.kannada-letter:nth-child(4) {
+    left: 47%;
+    animation-duration: 18s;
+    animation-delay: -11s;
+}
+
+.kannada-letter:nth-child(5) {
+    left: 63%;
+    animation-duration: 15s;
+    animation-delay: -6s;
+}
+
+.kannada-letter:nth-child(6) {
+    left: 78%;
+    animation-duration: 17s;
+    animation-delay: -10s;
+}
+
+.kannada-letter:nth-child(7) {
+    left: 91%;
+    animation-duration: 14s;
+    animation-delay: -3s;
+}
+
+/* Flag positions */
+
+.karnataka-flag:nth-child(8) {
+    left: 12%;
+    animation-duration: 17s;
+    animation-delay: -9s;
+}
+
+.karnataka-flag:nth-child(9) {
+    left: 39%;
+    animation-duration: 19s;
+    animation-delay: -13s;
+}
+
+.karnataka-flag:nth-child(10) {
+    left: 69%;
+    animation-duration: 16s;
+    animation-delay: -5s;
+}
+
+.karnataka-flag:nth-child(11) {
+    left: 86%;
+    animation-duration: 20s;
+    animation-delay: -15s;
+}
+
+/* Falling animation */
+
+@keyframes kannadaLetterFall {
+    0% {
+        transform: translate(0, -10vh) rotate(-10deg);
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 0.95;
+    }
+
+    30% {
+        transform: translate(22px, 30vh) rotate(4deg);
+    }
+
+    55% {
+        transform: translate(-15px, 60vh) rotate(-5deg);
+    }
+
+    100% {
+        transform: translate(18px, 115vh) rotate(18deg);
+        opacity: 0;
+    }
+}
+
+@keyframes karnatakaFlagFall {
+    0% {
+        transform: translate(0, -10vh) rotate(-8deg);
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 0.7;
+    }
+
+    30% {
+        transform: translate(24px, 30vh) rotate(8deg);
+    }
+
+    55% {
+        transform: translate(-18px, 60vh) rotate(-7deg);
+    }
+
+    100% {
+        transform: translate(16px, 115vh) rotate(12deg);
+        opacity: 0;
+    }
+}
+.back {
+            text-align: center;
+            margin: 30px;
+        }
+
+        .back a {
+            text-decoration: none;
+            background-color:  #e8a34a;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 25px;
+        }
+
+        .back a:hover {
+            background-color:  #173D35;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- FLOATING KANNADA LETTERS AND KARNATAKA FLAGS -->
+
+<div class="floating-decorations" aria-hidden="true">
+
+    <!-- Kannada Letters -->
+
+    <span class="kannada-letter">ಅ</span>
+    <span class="kannada-letter">ಆ</span>
+    <span class="kannada-letter">ಇ</span>
+    <span class="kannada-letter">ಕ</span>
+    <span class="kannada-letter">ಗ</span>
+    <span class="kannada-letter">ಮ</span>
+    <span class="kannada-letter">ನ</span>
+
+    <!-- Karnataka Flags -->
+
+    <span class="karnataka-flag">
+        <span class="flag-yellow"></span>
+        <span class="flag-red"></span>
+    </span>
+
+    <span class="karnataka-flag">
+        <span class="flag-yellow"></span>
+        <span class="flag-red"></span>
+    </span>
+
+    <span class="karnataka-flag">
+        <span class="flag-yellow"></span>
+        <span class="flag-red"></span>
+    </span>
+
+    <span class="karnataka-flag">
+        <span class="flag-yellow"></span>
+        <span class="flag-red"></span>
+    </span>
+
+</div>
+
+<!-- HEADER -->
+
+<header>
+
+    <h1>📚 Kannada Literature of Dharwada</h1>
+
+    <p>
+        The Land of Poets, Writers and Literary Heritage
+    </p>
+
+</header>
+<div class="back">
+    <center><a href="/Main.html">← Go Back</a></center>
+    </div>
+
+
+<!-- INTRODUCTION -->
+
+<section class="intro">
+
+    <h2>Literary Heritage of Dharwad</h2>
+
+    <p>
+        Dharwad has played an important role in the development of
+        Kannada literature. The city has been home to poets, writers,
+        critics, teachers and thinkers who enriched Kannada language
+        and literature through poetry, criticism, history and creative writing.
+    </p>
+
+</section>
+
+
+<!-- D R BENDRE -->
+
+<section class="literary-person">
+
+    <div class="person-top">
+
+        <img src="/static/images/people/D%20R%20Bendre.jpg" alt="D R Bendre">
+
+        <div>
+
+            <h2>D. R. Bendre</h2>
+
+            <h3>
+                The Poet of Kannada • Ambikatanayadatta
+            </h3>
+
+        </div>
+
+    </div>
+
+
+    <div class="person-content">
+
+        <h3>✍️ About Him</h3>
+
+        <p>
+            Dattatreya Ramachandra Bendre was one of the most celebrated
+            Kannada poets. His poetry is known for its musical quality,
+            imagination, nature, human emotions and connection with
+            everyday Kannada life.
+        </p>
+
+
+        <h3>📖 Great Works</h3>
+
+        <div class="work-box">
+
+            <ul>
+
+                <li><strong>Aralu-Maralu</strong> – A famous poetry collection</li>
+
+                <li><strong>Gari</strong> – One of his important poetry collections</li>
+
+                <li><strong>Naaku Tanti</strong> – A significant work in Kannada poetry</li>
+
+                <li><strong>Krishnakumari</strong> – One of his notable literary works</li>
+
+            </ul>
+
+        </div>
+
+
+        <h3>🏆 Awards & Honours</h3>
+
+        <div class="award-box">
+
+            <p>
+                <strong>Sahitya Akademi Award – 1958</strong>
+            </p>
+
+            <p>
+                Awarded for <strong>Aralu-Maralu</strong>.
+            </p>
+
+            <p>
+                <strong>Sahitya Akademi Fellowship – 1969</strong>
+            </p>
+
+            <p>
+                The fellowship is one of the highest honours given by
+                the Sahitya Akademi.
+            </p>
+
+        </div>
+
+
+        <h3>🌟 Contribution</h3>
+
+        <p>
+            Bendre gave Kannada poetry a distinctive musical and
+            emotional style and became one of the most influential
+            voices of modern Kannada literature.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- V K GOKAK -->
+
+<section class="literary-person">
+
+    <div class="person-top">
+
+        <img src="/static/images/people/vkgokak.webp" alt="V K Gokak">
+
+        <div>
+
+            <h2>V. K. Gokak</h2>
+
+            <h3>
+                Poet, Scholar, Critic and Educationist
+            </h3>
+
+        </div>
+
+    </div>
+
+
+    <div class="person-content">
+
+        <h3>✍️ About Him</h3>
+
+        <p>
+            Vinayaka Krishna Gokak was an important Kannada poet,
+            scholar and literary critic. He made major contributions
+            to Kannada literature as well as education.
+        </p>
+
+
+        <h3>📖 Great Works</h3>
+
+        <div class="work-box">
+
+            <ul>
+
+                <li>
+                    <strong>Dyava-Prithvi</strong> – A major Kannada
+                    poetry collection
+                </li>
+
+                <li>
+                    <strong>Bharata Sindhu Rashmi</strong> –
+                    His famous epic poem
+                </li>
+
+                <li>
+                    <strong>Samudra Geethegalu</strong> –
+                    An important poetic work
+                </li>
+
+                <li>
+                    <strong>Navya Kavitegalu</strong> –
+                    Contributions to modern Kannada poetry
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <h3>🏆 Awards & Honours</h3>
+
+        <div class="award-box">
+
+            <p>
+                <strong>Sahitya Akademi Award – 1960</strong>
+            </p>
+
+            <p>
+                Awarded for <strong>Dyava-Prithvi</strong>.
+            </p>
+
+            <p>
+                <strong>Jnanpith Award – 1990</strong>
+            </p>
+
+            <p>
+                He received the Jnanpith Award for his contribution
+                to Indian literature.
+            </p>
+
+        </div>
+
+
+        <h3>🌟 Contribution</h3>
+
+        <p>
+            Gokak played an important role in Kannada poetry,
+            literary criticism and education. His work helped
+            strengthen the position of Kannada literature in
+            modern Indian literary culture.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- R S MUGALI -->
+
+<section class="literary-person">
+
+    <div class="person-top">
+
+        <img src="/static/images/people/R%20s%20mugali.jpg" alt="R S Mugali">
+
+        <div>
+
+            <h2>R. S. Mugali</h2>
+
+            <h3>
+                Historian, Critic and Writer of Kannada Literature
+            </h3>
+
+        </div>
+
+    </div>
+
+
+    <div class="person-content">
+
+        <h3>✍️ About Him</h3>
+
+        <p>
+            R. S. Mugali was a distinguished Kannada writer, critic
+            and scholar. His work helped readers understand the
+            growth and development of Kannada literature.
+        </p>
+
+
+        <h3>📖 Great Works</h3>
+
+        <div class="work-box">
+
+            <ul>
+
+                <li>
+                    <strong>Kannada Sahitya Charitre</strong> –
+                    History of Kannada Literature
+                </li>
+
+                <li>
+                    <strong>Jeevanarasika</strong> –
+                    His autobiography
+                </li>
+
+                <li>
+                    <strong>Kanasina Kannike</strong> –
+                    Collection of short stories
+                </li>
+
+                <li>
+                    <strong>Heritage of Karnataka</strong>
+                </li>
+
+                <li>
+                    <strong>Tavanidhi</strong>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <h3>🏆 Awards & Honours</h3>
+
+        <div class="award-box">
+
+            <p>
+                <strong>Sahitya Akademi Award – 1956</strong>
+            </p>
+
+            <p>
+                Awarded for
+                <strong>Kannada Sahitya Charitre</strong>.
+            </p>
+
+            <p>
+                <strong>Karnataka Rajyotsava Prashasti</strong>
+            </p>
+
+            <p>
+                He also served as president of the Kannada Literary
+                Conference held at Tumakuru.
+            </p>
+
+        </div>
+
+
+        <h3>🌟 Contribution</h3>
+
+        <p>
+            Mugali's literary history and criticism helped document
+            and explain the development of Kannada literature for
+            future generations.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- GIRADDI GOVINDARAJ -->
+
+<section class="literary-person">
+
+    <div class="person-top">
+
+        <img src="/static/images/misc/giraddi.jpg" alt="Giraddi Govindaraj">
+
+        <div>
+
+            <h2>Giraddi Govindaraj</h2>
+
+            <h3>
+                Writer, Critic, Teacher and Literary Thinker
+            </h3>
+
+        </div>
+
+    </div>
+
+
+    <div class="person-content">
+
+        <h3>✍️ About Him</h3>
+
+        <p>
+            Giraddi Govindaraj was an important figure in modern
+            Kannada literary criticism and creative writing.
+            Dharwada became an important part of his literary journey.
+        </p>
+
+
+        <h3>📖 Great Works & Contributions</h3>
+
+        <div class="work-box">
+
+            <ul>
+
+                <li>
+                    <strong>Hangu</strong> – A well-known short story
+                </li>
+
+                <li>
+                    <strong>Aryavarta</strong> – Collection of
+                    critical essays
+                </li>
+
+                <li>
+                    <strong>Critical Idiom Series</strong> –
+                    General editor
+                </li>
+
+                <li>
+                    <strong>Shatamanada Sankalanagalu</strong> –
+                    Literary compilation series
+                </li>
+
+                <li>
+                    Work related to the complete writings of
+                    <strong>Kirtinath Kurtkoti</strong>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <h3>🏆 Awards & Honours</h3>
+
+        <div class="award-box">
+
+            <ul>
+
+                <li>
+                    <strong>Karnataka Sahitya Academy Gourava Prashasti – 1992</strong>
+                </li>
+
+                <li>
+                    <strong>Karnataka Nataka Academy Fellowship – 1993</strong>
+                </li>
+
+                <li>
+                    <strong>Karnataka Rajyotsava Prashasti – 2002</strong>
+                </li>
+
+                <li>
+                    <strong>Shrikrishna Prashasti – 2002</strong>
+                </li>
+
+                <li>
+                    <strong>Gourish Kaikini Prashasti – 2010</strong>
+                </li>
+
+                <li>
+                    <strong>M. P. Prakash Sahityasiri Prashasti – 2010</strong>
+                </li>
+
+                <li>
+                    <strong>A. Na. Kru. Prashasti – 2014</strong>
+                </li>
+
+                <li>
+                    <strong>G. S. S. Prashasti – 2014</strong>
+                </li>
+
+                <li>
+                    <strong>Karnataka Kalpavriksha Prashasti – 2014</strong>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <h3>🌟 Contribution</h3>
+
+        <p>
+            Giraddi Govindaraj made significant contributions to
+            Kannada literary criticism, creative writing, theatre
+            and literary scholarship. His work also helped preserve
+            and promote the literary culture associated with Dharwada.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL HIGHLIGHT -->
+
+<section class="highlight">
+
+    <h2>🌟 Dharwada – A City of Literary Legends</h2>
+
+    <p>
+        From the poetry of D. R. Bendre and V. K. Gokak to the
+        literary scholarship of R. S. Mugali and the criticism and
+        creative work of Giraddi Govindaraj, Dharwada has played a
+        remarkable role in the growth of Kannada literature.
+    </p>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 <span>Dharwada Search</span> |
+        Kannada Literary Heritage of Dharwada
+    </p>
+
+</footer>
+
+</body>
+</html>

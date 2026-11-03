@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>History of Dharwad</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background: #f4ead8;
+            color:#173D35;
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            height: 430px;
+
+            background:
+                linear-gradient(#173D35,
+                                #173D35),
+                url("images/old-dharwad.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .hero-content {
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+
+            text-shadow: 2px 3px 8px black;
+        }
+
+        .hero p {
+            font-size: 24px;
+            font-style: italic;
+        }
+
+        /* MAIN CONTENT */
+
+        .container {
+            width: 80%;
+            max-width: 1100px;
+            margin: 60px auto;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 38px;
+            color: #173D35;
+            margin-bottom: 30px;
+        }
+
+        .content-box {
+            background: #fffaf0;
+            padding: 35px;
+            border-radius: 15px;
+
+            box-shadow: 0 5px 20px rgba(70,45,25,0.18);
+
+            margin-bottom: 55px;
+        }
+
+        .content-box p {
+            font-size: 18px;
+            line-height: 1.9;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* NAME SECTION */
+
+        .name-section {
+            background:#faf6ec;
+            padding: 40px;
+            border-radius: 15px;
+
+            margin-bottom: 60px;
+
+            border-left: 7px solid #173D35;
+        }
+
+        .name-section h2 {
+            color:#173D35;
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        .name-section p {
+            font-size: 18px;
+            line-height: 1.9;
+            margin-bottom: 12px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #173D35;
+        }
+
+        /* OLD PHOTOS */
+
+        .gallery-title {
+            text-align: center;
+            font-size: 38px;
+            color: #173D35;
+            margin-bottom: 30px;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .photo-card {
+            width: 31%;
+            background: #faf6ec;
+            padding: 10px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 5px 15px #173D35;
+
+            transition: 0.4s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-10px) scale(1.03);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 230px;
+
+            object-fit: cover;
+
+            border-radius: 7px;
+
+            filter: sepia(20%);
+        }
+
+        .photo-card p {
+            text-align: center;
+            padding: 12px 5px;
+            font-style: italic;
+            color:#173D35;
+        }
+
+        /* TAGLINE */
+
+        .tagline {
+            margin-top: 70px;
+            padding: 55px 20px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    #173D35,
+                    #173D35
+                ),
+                url("images/old-dharwad-2.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+        }
+
+        .tagline h2 {
+            font-size: 42px;
+            font-style: italic;
+            letter-spacing: 2px;
+
+            text-shadow: 2px 2px 6px black;
+        }
+
+        .tagline p {
+            margin-top: 12px;
+            font-size: 19px;
+        }
+
+        .back{
+            display:inline-block;
+            margin-top:30px;
+            background: #e8a34a;
+            color:#173D35;
+            padding:11px 22px;
+            border-radius:25px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+        /* FOOTER */
+
+        footer {
+            background:#173D35;
+            color: #faf6ec;
+            text-align: center;
+            padding: 18px;
+            margin-top: 50px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 768px) {
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .photo-card {
+                width: 90%;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .tagline h2 {
+                font-size: 28px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+     <!-- TAGLINE -->
+
+    <section class="tagline">
+
+        <h2>
+            “Matt Matt Nenapagtaiti Nam Dharwada”
+        </h2> 
+
+        <p>
+            A city where every street carries a memory.
+        </p>
+        <br>
+        <a href="/Main.html" class="back">← Go Back</a>
+
+    </section>
+
+    <!-- CONTENT -->
+
+    <div class="container">
+
+
+        <!-- HISTORY -->
+
+        <section>
+
+            <h2 class="title">
+                The History of Dharwad
+            </h2>
+
+            <div class="content-box">
+
+                <p>
+                    Dharwad is one of the historically important cities
+                    of North Karnataka. It has a rich heritage shaped
+                    by centuries of history, culture, literature and music.
+                </p>
+
+                <p>
+                    The region of Dharwad has witnessed the rule of
+                    several important dynasties. Chalukyas, Rashtrakutas,
+                    Vijayanagara rulers, Adil Shahis, Marathas and the
+                    British have all influenced the region at different
+                    periods of history.
+                </p>
+
+                <p>
+                    Dharwad's location made it an important stopping point
+                    between the hills of Malenadu and the plains of
+                    Bayaluseeme. Because of this geographical position,
+                    the city developed as an important centre for trade
+                    and travel.
+                </p>
+
+                <p>
+                    Over the years, Dharwad became especially famous for
+                    education, literature, music and culture. It has been
+                    home to many celebrated writers, poets and musicians.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- NAME ORIGIN -->
+
+        <section>
+
+            <h2 class="title">
+                How Did Dharwad Get Its Name?
+            </h2>
+
+            <div class="name-section">
+
+                <h2>
+                    The Story Behind the Name
+                </h2>
+
+                <p>
+                    The name <span class="highlight">Dharwad</span>
+                    is traditionally associated with the old name
+                    <span class="highlight">"Dwarawata"</span>.
+                </p>
+
+                <p>
+                    The word <span class="highlight">"Dwara"</span>
+                    means "door" or "gateway", while
+                    <span class="highlight">"Wata"</span> or
+                    <span class="highlight">"Wada"</span> refers to
+                    a settlement or town.
+                </p>
+
+                <p>
+                    Dharwad was situated like a gateway between the
+                    Malenadu hills and the plains of Karnataka. It was
+                    therefore an important resting and stopping place
+                    for travellers.
+                </p>
+
+                <p>
+                    Over time, the name is believed to have changed
+                    through local usage and eventually became
+                    <span class="highlight">Dharwad</span>.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- OLD PHOTOS -->
+
+        <section>
+
+            <h2 class="gallery-title">
+                Dharwad Through the Years
+            </h2>
+
+            <div class="gallery">
+
+                <div class="photo-card">
+
+                    <img src="/static/images/places/gandichouk.jpg"
+                         alt="Old Dharwad">
+
+                    <p>
+                        Old Dharwad
+                    </p>
+
+                </div>
+
+
+                <div class="photo-card">
+
+                    <img src="/static/images/misc/21905.jpg"
+                         alt="Historical Dharwad">
+
+                    <p>
+                        Dharwad in the Past
+                    </p>
+
+                </div>
+
+
+                <div class="photo-card">
+
+                    <img src="/static/images/places/oldfort.jpg"
+                         alt="Historic Dharwad">
+
+                    <p>
+                        Memories of Old Dharwad
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Dharwad Search | Our Heritage, Our Dharwad
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

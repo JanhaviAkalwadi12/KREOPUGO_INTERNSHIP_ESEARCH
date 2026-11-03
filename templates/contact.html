@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact - Dharwad Search</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f5f2e9;
+    color:#243e3c;
+}
+header{
+    background:#193f3d;
+    color:white;
+    padding:50px 8%;
+}
+header h1{font-size:45px}
+.container{
+    width:85%;
+    max-width:900px;
+    margin:auto;
+    padding:40px 0;
+}
+.contact{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 5px 18px #0001;
+}
+input,textarea{
+    width:100%;
+    padding:13px;
+    margin:8px 0 18px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+textarea{
+    height:130px;
+    resize:none;
+}
+button{
+    background:#d2a548;
+    border:none;
+    padding:12px 25px;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.message{
+    margin-top:15px;
+    font-weight:bold;
+}
+.back{
+    display:inline-block;
+    margin-top:30px;
+    background:#d2a548;
+    color:#183b39;
+    padding:11px 22px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+footer{
+    margin-top:40px;
+    background:#193f3d;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>📩 Contact Dharwad Search</h1>
+<p>We would love to hear from you.</p>
+<a href="/Main.html" class="back">← Go Back</a>
+
+</header>
+
+<main class="container">
+
+<div class="contact">
+
+<h2>Send us a message</h2>
+
+<form onsubmit="sendMessage(event)">
+
+<label>Name</label>
+<input type="text" id="name" required>
+
+<label>Email</label>
+<input type="email" id="email" required>
+
+<label>Message</label>
+<textarea id="msg" required></textarea>
+
+<button type="submit">Send Message</button>
+
+<p id="result" class="message"></p>
+
+</form>
+
+</div>
+
+
+</main>
+
+<footer>Dharwad Search • Contact</footer>
+
+<script>
+function sendMessage(event){
+    event.preventDefault();
+
+    document.getElementById("result").textContent =
+    "Thank you! Your message has been recorded.";
+}
+</script>
+
+</body>
+</html>
