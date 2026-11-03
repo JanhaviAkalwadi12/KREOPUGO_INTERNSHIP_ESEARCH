@@ -1,7 +1,8 @@
+import os
+import sys
 from pathlib import Path
-from flask import Flask, render_template, abort, send_from_directory, jsonify
+from flask import Flask, render_template, abort, send_from_directory, jsonify, request
 
-# Base directory for reliable resolution on Vercel and local runs
 BASE_DIR = Path(__file__).resolve().parent
 TEMPLATE_DIR = BASE_DIR / "templates"
 STATIC_DIR = BASE_DIR / "static"
@@ -14,6 +15,27 @@ app = Flask(
     static_url_path="/static"
 )
 
+class VercelPathMiddleware:
+    """WSGI Middleware to restore the true client request path when running behind Vercel rewrites."""
+    def __init__(self, wsgi_app):
+        self.wsgi_app = wsgi_app
+
+    def __call__(self, environ, start_response):
+        matched = (
+            environ.get("HTTP_X_MATCHED_PATH")
+            or environ.get("HTTP_X_FORWARDED_URI")
+            or environ.get("HTTP_X_ORIGINAL_URL")
+        )
+        if matched:
+            path_only = matched.split("?")[0]
+            environ["PATH_INFO"] = path_only
+        elif environ.get("PATH_INFO") in ("/api/index.py", "/api/index", "/api", "/api/"):
+            environ["PATH_INFO"] = "/"
+
+        return self.wsgi_app(environ, start_response)
+
+app.wsgi_app = VercelPathMiddleware(app.wsgi_app)
+
 def _get_template_map():
     """Build a case-insensitive map of templates for Linux/Vercel compatibility."""
     mapping = {}
@@ -24,7 +46,6 @@ def _get_template_map():
                 mapping[file_path.stem.lower()] = file_path.name
     return mapping
 
-# Cache template mapping at startup
 TEMPLATE_MAP = _get_template_map()
 
 @app.route("/")
@@ -32,6 +53,8 @@ TEMPLATE_MAP = _get_template_map()
 @app.route("/index.html")
 @app.route("/land")
 @app.route("/land.html")
+@app.route("/api/index")
+@app.route("/api/index.py")
 def home():
     """Render the primary landing page."""
     return render_template("land.html")
@@ -42,11 +65,9 @@ def show_page(page):
     clean_page = page.strip("/").strip()
     page_lower = clean_page.lower()
 
-    # Route landing page aliases
-    if page_lower in ("index", "index.html", "land", "land.html", "home", "home.html"):
+    if page_lower in ("index", "index.html", "land", "land.html", "home", "home.html", "api/index", "api/index.py"):
         return render_template("land.html")
 
-    # Match against template mapping
     template_map = _get_template_map() if not TEMPLATE_MAP else TEMPLATE_MAP
 
     if page_lower in template_map:
@@ -57,7 +78,7 @@ def show_page(page):
         if with_html in template_map:
             return render_template(template_map[with_html])
 
-    abort(404)
+    return render_template("land.html")
 
 @app.route("/data/<path:filename>")
 def serve_data(filename):
@@ -90,7 +111,7 @@ def health_check():
 @app.errorhandler(404)
 def not_found(e):
     """Graceful 404 handler rendering landing page."""
-    return render_template("land.html"), 404
+    return render_template("land.html"), 200
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
