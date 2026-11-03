@@ -48,6 +48,19 @@ def _get_template_map():
 
 TEMPLATE_MAP = _get_template_map()
 
+@app.route("/debug-info")
+def debug_info():
+    return jsonify({
+        "base_dir": str(BASE_DIR),
+        "template_dir": str(TEMPLATE_DIR),
+        "template_dir_exists": TEMPLATE_DIR.is_dir(),
+        "template_files": [f.name for f in TEMPLATE_DIR.iterdir()] if TEMPLATE_DIR.is_dir() else [],
+        "template_map": _get_template_map(),
+        "environ_PATH_INFO": request.environ.get("PATH_INFO"),
+        "HTTP_X_MATCHED_PATH": request.environ.get("HTTP_X_MATCHED_PATH"),
+        "headers": dict(request.headers),
+    })
+
 @app.route("/")
 @app.route("/index")
 @app.route("/index.html")
