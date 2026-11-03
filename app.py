@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 from pathlib import Path
 from flask import Flask, render_template, abort, send_from_directory, jsonify, request
 
@@ -16,11 +17,16 @@ app = Flask(
 )
 
 class VercelPathMiddleware:
-    """WSGI Middleware to restore the true client request path when running behind Vercel rewrites."""
     def __init__(self, wsgi_app):
         self.wsgi_app = wsgi_app
 
     def __call__(self, environ, start_response):
+        if "debug=1" in environ.get("QUERY_STRING", ""):
+            headers = {k: str(v) for k, v in environ.items() if isinstance(v, (str, int, bool))}
+            data = json.dumps(headers, indent=2).encode("utf-8")
+            start_response("200 OK", [("Content-Type", "application/json"), ("Content-Length", str(len(data)))])
+            return [data]
+
         matched = (
             environ.get("HTTP_X_MATCHED_PATH")
             or environ.get("HTTP_X_FORWARDED_URI")
@@ -37,7 +43,6 @@ class VercelPathMiddleware:
 app.wsgi_app = VercelPathMiddleware(app.wsgi_app)
 
 def _get_template_map():
-    """Build a case-insensitive map of templates for Linux/Vercel compatibility."""
     mapping = {}
     if TEMPLATE_DIR.is_dir():
         for file_path in TEMPLATE_DIR.iterdir():
@@ -48,19 +53,6 @@ def _get_template_map():
 
 TEMPLATE_MAP = _get_template_map()
 
-@app.route("/debug-info")
-def debug_info():
-    return jsonify({
-        "base_dir": str(BASE_DIR),
-        "template_dir": str(TEMPLATE_DIR),
-        "template_dir_exists": TEMPLATE_DIR.is_dir(),
-        "template_files": [f.name for f in TEMPLATE_DIR.iterdir()] if TEMPLATE_DIR.is_dir() else [],
-        "template_map": _get_template_map(),
-        "environ_PATH_INFO": request.environ.get("PATH_INFO"),
-        "HTTP_X_MATCHED_PATH": request.environ.get("HTTP_X_MATCHED_PATH"),
-        "headers": dict(request.headers),
-    })
-
 @app.route("/")
 @app.route("/index")
 @app.route("/index.html")
@@ -69,12 +61,10 @@ def debug_info():
 @app.route("/api/index")
 @app.route("/api/index.py")
 def home():
-    """Render the primary landing page."""
     return render_template("land.html")
 
 @app.route("/<path:page>")
 def show_page(page):
-    """Serve any template with case-insensitivity and extension flexibility."""
     clean_page = page.strip("/").strip()
     page_lower = clean_page.lower()
 
@@ -95,12 +85,10 @@ def show_page(page):
 
 @app.route("/data/<path:filename>")
 def serve_data(filename):
-    """Serve files from data folder."""
     return send_from_directory(str(DATA_DIR), filename)
 
 @app.route("/api/places")
 def api_places():
-    """API endpoint providing places data."""
     places_file = DATA_DIR / "places.json"
     if places_file.is_file():
         with open(places_file, "r", encoding="utf-8") as f:
@@ -109,7 +97,6 @@ def api_places():
 
 @app.route("/favicon.ico")
 def favicon():
-    """Handle browser favicon request gracefully."""
     icon_path = STATIC_DIR / "favicon.ico"
     if icon_path.is_file():
         return send_from_directory(str(STATIC_DIR), "favicon.ico")
@@ -118,12 +105,10 @@ def favicon():
 @app.route("/health")
 @app.route("/api/health")
 def health_check():
-    """Deployment health check endpoint."""
     return jsonify({"status": "healthy", "project": "DharwadSearch"}), 200
 
 @app.errorhandler(404)
 def not_found(e):
-    """Graceful 404 handler rendering landing page."""
     return render_template("land.html"), 200
 
 if __name__ == "__main__":
